@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.insigma.mvc.dao.index.IndexEf12Mapper">
+  <resultMap id="BaseResultMap" type="com.insigma.mvc.model.Ef12">
+    <id column="EEF121" jdbcType="VARCHAR" property="eef121" />
+    <result column="AEF101" jdbcType="VARCHAR" property="aef101" />
+    <result column="AEF104" jdbcType="VARCHAR" property="aef104" />
+    <result column="AEF132" jdbcType="VARCHAR" property="aef132" />
+    <result column="AEF133" jdbcType="VARCHAR" property="aef133" />
+    <result column="AAE011" jdbcType="VARCHAR" property="aae011" />
+    <result column="AAE036" jdbcType="DATE" property="aae036" />
+    <result column="AAF011" jdbcType="VARCHAR" property="aaf011" />
+    <result column="AAE009" jdbcType="VARCHAR" property="aae009" />
+    <result column="AAE010" jdbcType="VARCHAR" property="aae010" />
+    <result column="AAE200" jdbcType="VARCHAR" property="aae200" />
+    <result column="AAE199" jdbcType="VARCHAR" property="aae199" />
+    <result column="AAE202" jdbcType="DATE" property="aae202" />
+    <result column="AAE201" jdbcType="VARCHAR" property="aae201" />
+    <result column="AAE198" jdbcType="VARCHAR" property="aae198" />
+    <result column="AAE203" jdbcType="VARCHAR" property="aae203" />
+    <result column="AAE133" jdbcType="VARCHAR" property="aae133" />
+    <result column="AAE134" jdbcType="VARCHAR" property="aae134" />
+    <result column="AAE132" jdbcType="VARCHAR" property="aae132" />
+    <result column="AAE135" jdbcType="VARCHAR" property="aae135" />
+    <result column="AAE102" jdbcType="DATE" property="aae102" />
+    <result column="AAE013" jdbcType="VARCHAR" property="aae013" />
+    <result column="AAB301" jdbcType="VARCHAR" property="aab301" />
+    <result column="EAE052" jdbcType="VARCHAR" property="eae052" />
+    <result column="AAB998" jdbcType="VARCHAR" property="aab998" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    EEF121, AEF101, AEF104, AEF132, AEF133, AAE011, AAE036, AAF011, AAE009, AAE010, AAE200, 
+    AAE199, AAE202, AAE201, AAE198, AAE203, AAE133, AAE134, AAE132, AAE135, AAE102, AAE013, 
+    AAB301, EAE052, AAB998
+  </sql>
+  <select id="getEf12AllInfo" parameterType="Ef12" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from EF12
+    where AAB998 = #{aab998,jdbcType=VARCHAR}
+  </select>
+  <!-- getEf12RegInfo -->
+   <select id="getEf12RegInfo" parameterType="Ef12" resultMap="BaseResultMap">
+    select 
+    a.aae036,a.aef104,b.aec101
+    from EF12 a,EC12 b 
+    where a.AAB998 = #{aab998,jdbcType=VARCHAR} and a.aab998=b.aab998 
+    and  a.aef133='1' and a.aef132='1' and  a.aae036 in (select max(c.aae036) from ef12 c where c.aef133='1' and c.aef132='1' and c.AAB998 = #{aab998,jdbcType=VARCHAR} )
+  </select>
+  <!-- 初级审核getEf12AuditFirst -->
+   <select id="getEf12AuditFirst" parameterType="Ef12" resultMap="BaseResultMap">
+    select 
+    a.aae036,a.aef104,b.aec101,a.aae202,
+    (select code_name from code_value where code_value.code_type='EAE052' and code_value=a.eae052) 
+    eae052,a.aae199
+    from EF12 a,EC12 b 
+    where a.AAB998 = #{aab998,jdbcType=VARCHAR} and a.aab998=b.aab998 and a.eae052!='0'
+     and a.aef133='1'  and a.aae202 in (select max(c.aae202) from ef12 c where c.aef133='1' and c.AAB998 = #{aab998,jdbcType=VARCHAR} )
+  </select>
+  <!-- getEf12AuditLast终极审核 -->
+   <select id="getEf12AuditLast" parameterType="Ef12" resultMap="BaseResultMap">
+    select 
+    a.aae036,a.aef104,b.aec101,a.aae202,
+    (select code_name from code_value where code_value.code_type='EAE052' and code_value=a.eae052) 
+    eae052,a.aae199
+    from EF12 a,EC12 b 
+    where a.AAB998 = #{aab998,jdbcType=VARCHAR} and a.aab998=b.aab998 and a.eae052!='0'
+     and a.aef133='2' and a.aae202 in (select max(c.aae202) from ef12 c where c.aef133='2' and c.AAB998 = #{aab998,jdbcType=VARCHAR} )
+  </select>
+  <!-- getEf12RegAudit 设立审核数量 -->
+   <select id="getEf12RegAudit" parameterType="Ef12" resultMap="BaseResultMap">
+      select
+      count(1) as num  
+      from 
+      ( select a.aef101, a.aef104, a.aab998,  a.aab301,  b.aae036,
+      (select code_name from code_value t where t.code_type='EAE052' AND code_value=b.eae052)
+       eae052, a.aae100, a.aef133, 
+      (select code_name from code_value t where t.code_type='AAB301' AND code_value=a.aef134) 
+       aef134
+      from ef11 a,ef12 b 
+      WHERE a.aef101=b.aef101 and a.aae100='1'  and b.eae052='0' 
+      and b.aae036 in (select max(c.aae036) from ef12 c where c.aef132='1' and c.aef133='1' group by c.aef101) 
+      and b.aab301 =#{aab301,jdbcType=VARCHAR} 
+      union 
+      select '' aef101, a.aef104, a.aab998,  a.aab301, b.aae036, 
+      (select code_name from code_value t where t.code_type='EAE052' AND code_value= b.eae052)
+      eae052, aae100, b.aef133 , 
+     (select code_name from code_value t where t.code_type='AAB301' AND code_value=a.aef134) 
+      aef134
+      from ef11_declare a,ef12 b WHERE a.aab998= b.aab998 and aae100='1' and b.eae052='0'
+      and b.aae036 in (select max(c.aae036) from ef12 c where c.aef132='1' and c.aef133='1' group by c.aab998) 
+      and b.aab301 = #{aab301,jdbcType=VARCHAR} ) 
+  </select>
+  <!-- getEf12RegLastAudit 设立终审数量  -->
+  <select id="getEf12RegLastAudit" parameterType="Ef12" resultMap="BaseResultMap">
+   select aab301, count(1) as num  from  ef12  where eae052='0' and aef133='2' and aef132='1' and aab301=#{aab301,jdbcType=VARCHAR} group by aab301 
+  </select>
+  <!-- getEf12UpdateInfoAudit 变更审核 -->
+   <select id="getEf12UpdateInfoAudit" parameterType="Ef12" resultMap="BaseResultMap">
+   SELECT
+   count(1) as num  
+   FROM ef11 a, ef12 b 
+   WHERE a.aef101 = b.aef101 and b.eae052='0'
+   AND b.aae036 IN (SELECT max(c.aae036) FROM ef12 c WHERE c.aef132 = '2' AND c.aef133 = '1' GROUP BY c.aef101) 
+   AND a.aab301 = #{aab301,jdbcType=VARCHAR} 
+  </select>
+  <!-- getEf12ReportInfoAudit 报告审核 -->
+   <select id="getEf12ReportInfoAudit" parameterType="Ef12" resultMap="BaseResultMap">
+   select count(1) as num from (select * from ef12 a,ef11 b where a.aef101=b.aef101 and a.aef132='3' and a.eae052='0'
+    and b.aae100='1'  and b.aab301=#{aab301,jdbcType=VARCHAR})
+  
+  </select>
+  <!-- getEf12CancleInfoAudit 注销审核 -->
+   <select id="getEf12CancleInfoAudit" parameterType="Ef12" resultMap="BaseResultMap">
+    select count(1) as num 
+    from (
+    select a.aab301, a.aab998
+    from ef12 a, ef11 b
+    where a.aab998 = b.aab998
+    and a.eae052 = '0'
+    and a.aef132 = '4'
+    and a.aab301 = #{aab301,jdbcType=VARCHAR}
+    and b.aae100 = '1' ) 
+  </select>
+</mapper>

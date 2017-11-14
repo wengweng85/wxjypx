@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<!-- saved from url=(0023)http://www.snhr.gov.cn/ -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+      
+	 <link type="text/css" rel="stylesheet" media="screen" href="./rcjlzxfw/style.css">
+        <script src="./rcjlzxfw/jquery-1.4a2.min.js" type="text/javascript"></script>
+		<script type="text/javascript" src="./rcjlzxfw/jquery.tree.js"></script>
+        <script type="text/javascript">
+        $(function(){
+        	$('#files').tree({
+        		expanded: 'li:first'
+        	});
+        });
+        </script>
+        <title>陕西省人才交流服务中心公共服务网</title>
+    <style type="text/css" media="screen">#FlashID {visibility:hidden}</style></head>
+    <body>
+       	
+
+
+
+
+<style type="text/css">
+body {
+	background-color: #FFFFFF;
+}
+</style>
+  
+  
+ <!-- 漂浮广告是否显示
+   <div id="codefans_net" style="position:absolute;z-index:1000;display:block">  
+  -->
+ <div id="codefans_net" style="position: absolute; z-index: 1000; display: none; left: 1320px; top: 1506px;">  
+  <a href="http://snhr.gov.cn/article/20170522000000014125/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A" target="_blank">
+  <img src="./rcjlzxfw/zpyb.jpg" border="0" width="100px" height="100px">
+  </a>
+</div>
+
+<script src="./rcjlzxfw/swfobject_modified.js" type="text/javascript"></script>
+<script src="./rcjlzxfw/turn.js" type="text/javascript"></script>
+<script> 
+	var x = 50,y = 60 ;
+	var xin = true, yin = true; 
+	var step = 1 ;
+	var delay = 50 ;
+	var floatimg=document.getElementById("codefans_net"); 
+	function float() { 
+		var L=T=0;
+		var R= document.body.clientWidth-floatimg.offsetWidth ;
+		var B = $(window).height()-floatimg.offsetHeight ;
+		$(floatimg).css("left",(x + document.body.scrollLeft));
+		$(floatimg).css("top",(y + document.body.scrollTop));
+		x = x + step*(xin?1:-1) ;
+		if (x < L) { 
+			xin = true; 
+			x = L;
+		} 
+		if (x > R){ 
+			xin = false; 
+			x = R;
+		} 
+		y = y + step*(yin?1:-1) ;
+		if (y < T) { 
+			yin = true; 
+			y = T; 
+		} 
+		if (y > B) { 
+			yin = false; 
+			y = B 
+		} 
+	} 
+	
+  /**  控制漂浮广告移动**/
+		var itl= setInterval("float()", delay) ;
+		floatimg.onmouseover=function(){
+			clearInterval(itl)
+		} 
+		floatimg.onmouseout=function(){
+			itl=setInterval("float()", delay)
+		}
+		
+		
+		var time = new Date();
+		var month = time.getMonth() + 1;
+		var week = new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");
+		var t = time.getFullYear()+'年'+month+'月'+time.getDate()+'日&nbsp;'+week[time.getDay()];
+		$("#system_time").ready(function(){
+			$("#system_time").html(t);
+		})
+		
+		
+		
+		$(document).ready(function(){
+				var pics = "";
+				var links = "";
+				var texts = "";
+				var picarray = new Array();
+				var linksarray = new Array();
+				var textsarray = new Array();
+								  picarray.push("http://images.xajob.com/ggfw//article/20170818000000015386.jpg");
+				  linksarray.push("/article/20170818000000015386/index/新闻/图片新闻");
+				  textsarray.push("我省举办高层次人才服务中心揭牌仪式暨高层次人才座谈会");
+								  picarray.push("http://images.xajob.com/ggfw//article/20170728000000015106.jpg");
+				  linksarray.push("/article/20170728000000015106/index/新闻/图片新闻");
+				  textsarray.push("中国西安人才市场召开专题会议 传达学习厅年中务虚会和作风建设座谈会精神");
+								  picarray.push("http://images.xajob.com/ggfw//article/20170704000000014767.png");
+				  linksarray.push("/article/20170704000000014767/index/新闻/图片新闻");
+				  textsarray.push("中国共产党陕西省人才交流服务中心新经济组织第二次代表大会顺利召开");
+								  picarray.push("http://images.xajob.com/ggfw//article/20170628000000014601.jpg");
+				  linksarray.push("/article/20170628000000014601/index/新闻/图片新闻");
+				  textsarray.push("中国西安人才市场召开2017年上半年目标责任考核点评工作会");
+								  picarray.push("http://images.xajob.com/ggfw//article/20170517000000014099.jpg");
+				  linksarray.push("/article/20170517000000014099/index/新闻/图片新闻");
+				  textsarray.push("中国西安人才市场陕西师范大学就业创业服务中心正式成立");
+								  picarray.push("http://images.xajob.com/ggfw//article/20170509000000014015.JPG");
+				  linksarray.push("/article/20170509000000014015/index/新闻/图片新闻");
+				  textsarray.push("陕西省人才交流服务中心召开党风廉政建设安排部署暨廉政教育辅导大会");
+								
+				pics= picarray.join("|");
+				links = linksarray.join("|");
+				texts = textsarray.join("|");
+				
+				var focus_width=300;
+				var focus_height=243;
+				var text_height=43;
+				var swf_height = focus_height+text_height;
+				var html = '<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="'+ focus_width +'" height="'+ focus_height +'">'
+				+ '<param name="allowScriptAccess" value="sameDomain"><param name="movie" value="http://images.xajob.com/ggfw/flash/playswf.swf"><param name="quality" value="high"><param name="bgcolor" value="#e3e3e3">'
+				+ '<param name="menu" value="false"><param name=wmode value="opaque">'
+				+ '<param name="FlashVars" value="pics='+pics+'&links='+links+'&texts='+texts+'&borderwidth='+focus_width+'&borderheight='+focus_height+'&textheight='+text_height+'">'
+				+ '<embed src="http://images.xajob.com/ggfw/flash/playswf.swf" wmode="opaque" flashvars="pics='+pics+'&links='+links+'&texts='+texts+'&borderwidth='+focus_width+'&borderheight='+focus_height+'&textheight='+text_height+'" menu="false" bgcolor="#F0F0F0" quality="high" width="'+ focus_width +'" height="'+ focus_height +'" allowscriptaccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer">'
+				+ '</object>';
+				$("#KinSlideshow").html(html);
+		});
+</script>
+  
+  <div id="title">
+    	<div class="titleft" id="system_time">2017年9月10日&nbsp;星期日</div>
+        <div class="titright"><a onclick="AddFavorite(window.location,document.title)" href="javascript:void(0)">加入收藏</a> | <a onclick="SetHome(window.location)" href="javascript:void(0)">设为首页</a> | <a href="http://www.snhr.gov.cn/contactus">联系我们</a></div>
+    </div>
+    <div id="header">
+    	<div style="margin-left:550px; padding-top:7px;">
+          <object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="450" height="180" style="visibility: inherit;">
+            <param name="movie" value="http://images.xajob.com/ggfw//flash/kouhao.swf">
+            <param name="quality" value="high">
+            <param name="wmode" value="transparent">
+            <param name="swfversion" value="9.0.45.0">
+            <!-- 此 param 标签提示使用 Flash Player 6.0 r65 和更高版本的用户下载最新版本的 Flash Player。如果您不想让用户看到该提示，请将其删除。 -->
+            <param name="expressinstall" value="Scripts/expressInstall.swf">
+            <!-- 下一个对象标签用于非 IE 浏览器。所以使用 IECC 将其从 IE 隐藏。 -->
+            <!--[if !IE]>-->
+            <object type="application/x-shockwave-flash" data="http://images.xajob.com/ggfw//flash/kouhao.swf" width="450" height="180">
+              <!--<![endif]-->
+              <param name="quality" value="high">
+              <param name="wmode" value="transparent">
+              <param name="swfversion" value="9.0.45.0">
+              <param name="expressinstall" value="Scripts/expressInstall.swf">
+              <!-- 浏览器将以下替代内容显示给使用 Flash Player 6.0 和更低版本的用户。 -->
+              <div>
+                <h4>此页面上的内容需要较新版本的 Adobe Flash Player。</h4>
+                <p><a href="http://www.adobe.com/go/getflashplayer"><img src="./rcjlzxfw/get_flash_player.gif" alt="获取 Adobe Flash Player" width="112" height="33"></a></p>
+              </div>
+              <!--[if !IE]>-->
+            </object>
+            <!--<![endif]-->
+          </object>
+        </div>
+	</div>
+    <div id="nav">
+    	<ul>                
+            <li class="four"><a href="./rcjlzxfw/陕西省人才交流服务中心公共服务网.html">网站首页</a></li>
+            <li class="four"><a href="http://www.snhr.gov.cn/rsdl">人事代理</a></li>
+            <li class="four"><a href="http://www.snhr.gov.cn/dagl">档案管理</a></li>
+            <li class="four"><a href="http://www.snhr.gov.cn/sbdl">社保代理</a></li>
+            <li class="four"><a href="http://www.snhr.gov.cn/zcpj">职称评价</a></li>
+            <li class="four"><a href="http://www.snhr.gov.cn/rcjl">人才交流</a></li>
+            <li class="five" style="width:92px"><a href="http://www.snhr.gov.cn/bysjy">毕业生就业</a></li>
+            <li class="five" style="width:92px"><a href="http://www.snhr.gov.cn/dxscy">大学生创业</a></li>
+            <li class="four"><a href="http://www.snjob.gov.cn/" target="_blank">求职招聘</a></li>
+            <li class="four"><a href="http://www.snhr.gov.cn/pxpj">培训评价</a></li> 
+            <li class="four"><a href="http://www.snhr.gov.cn/dyzc">党员之窗</a></li>
+            <li class="four"><a href="http://www.snhr.gov.cn/xhgz">协会工作</a></li>
+            <li class="noBg four"><a href="http://www.snhr.gov.cn/sxrc">陕西人才</a></li>
+    	</ul>
+    </div>
+    <div id="content">
+   	  	<div class="imgNew">
+         	
+		 	<div id="KinSlideshow" style="width:300px;"><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="300" height="243"><param name="allowScriptAccess" value="sameDomain"><param name="movie" value="http://images.xajob.com/ggfw/flash/playswf.swf"><param name="quality" value="high"><param name="bgcolor" value="#e3e3e3"><param name="menu" value="false"><param name="wmode" value="opaque"><param name="FlashVars" value="pics=http://images.xajob.com/ggfw//article/20170818000000015386.jpg|http://images.xajob.com/ggfw//article/20170728000000015106.jpg|http://images.xajob.com/ggfw//article/20170704000000014767.png|http://images.xajob.com/ggfw//article/20170628000000014601.jpg|http://images.xajob.com/ggfw//article/20170517000000014099.jpg|http://images.xajob.com/ggfw//article/20170509000000014015.JPG&amp;links=/article/20170818000000015386/index/新闻/图片新闻|/article/20170728000000015106/index/新闻/图片新闻|/article/20170704000000014767/index/新闻/图片新闻|/article/20170628000000014601/index/新闻/图片新闻|/article/20170517000000014099/index/新闻/图片新闻|/article/20170509000000014015/index/新闻/图片新闻&amp;texts=我省举办高层次人才服务中心揭牌仪式暨高层次人才座谈会|中国西安人才市场召开专题会议 传达学习厅年中务虚会和作风建设座谈会精神|中国共产党陕西省人才交流服务中心新经济组织第二次代表大会顺利召开|中国西安人才市场召开2017年上半年目标责任考核点评工作会|中国西安人才市场陕西师范大学就业创业服务中心正式成立|陕西省人才交流服务中心召开党风廉政建设安排部署暨廉政教育辅导大会&amp;borderwidth=300&amp;borderheight=243&amp;textheight=43"><embed src="http://images.xajob.com/ggfw/flash/playswf.swf" wmode="opaque" flashvars="pics=http://images.xajob.com/ggfw//article/20170818000000015386.jpg|http://images.xajob.com/ggfw//article/20170728000000015106.jpg|http://images.xajob.com/ggfw//article/20170704000000014767.png|http://images.xajob.com/ggfw//article/20170628000000014601.jpg|http://images.xajob.com/ggfw//article/20170517000000014099.jpg|http://images.xajob.com/ggfw//article/20170509000000014015.JPG&amp;links=/article/20170818000000015386/index/新闻/图片新闻|/article/20170728000000015106/index/新闻/图片新闻|/article/20170704000000014767/index/新闻/图片新闻|/article/20170628000000014601/index/新闻/图片新闻|/article/20170517000000014099/index/新闻/图片新闻|/article/20170509000000014015/index/新闻/图片新闻&amp;texts=我省举办高层次人才服务中心揭牌仪式暨高层次人才座谈会|中国西安人才市场召开专题会议 传达学习厅年中务虚会和作风建设座谈会精神|中国共产党陕西省人才交流服务中心新经济组织第二次代表大会顺利召开|中国西安人才市场召开2017年上半年目标责任考核点评工作会|中国西安人才市场陕西师范大学就业创业服务中心正式成立|陕西省人才交流服务中心召开党风廉政建设安排部署暨廉政教育辅导大会&amp;borderwidth=300&amp;borderheight=243&amp;textheight=43" menu="false" bgcolor="#F0F0F0" quality="high" width="300" height="243" allowscriptaccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"></object></div>
+            <div class="search">
+                <form action="http://www.snhr.gov.cn/search" method="GET" name="">
+            	<table>
+                	<tbody><tr>
+                    	<td><img src="./rcjlzxfw/znss.jpg" width="72" height="26"> </td>
+                        <td>关键字：</td>
+                        <td><input type="text" name="keys" value="" style="width:110px; height:22px;"></td>
+                        <td><input type="submit" value="" style="background:url(http://images.xajob.com/ggfw//image/index/sstb.jpg) no-repeat; width:26px; height:26px;cursor:pointer"></td>
+                    </tr>
+                </tbody></table>
+				</form>
+          	</div>
+        </div>
+        <div class="notice">
+        	<span class="notLeft"></span>
+            <div class="notCenter">
+            	<!-- <span style="float:left">中心要闻</span>
+                <span class="more"><a href="/article/more/001-002-002/index/首页/中心要闻" target="_blank">更多>></a></span>
+				-->
+				<li><a href="http://www.snhr.gov.cn/article/more/001-002-002/index/%E9%A6%96%E9%A1%B5/%E4%B8%AD%E5%BF%83%E8%A6%81%E9%97%BB" class="dorp" id="title1" onmousemove="showPhotoTabIdx(1);"><span id="_sp1" style="color:#005bac; ">中心要闻</span></a>&nbsp;&nbsp;
+                <a href="http://www.snhr.gov.cn/article/more/001-002-016/index/%E9%A6%96%E9%A1%B5/%E8%A1%8C%E4%B8%9A%E5%8A%A8%E6%80%81" class="nodorp" id="title2" onmousemove="showPhotoTabIdx(2);"><span id="_sp2" style="color:#0080ff; ">行业动态</span></a></li>
+            </div>
+            <span class="notRight"></span>
+            <div class="notBot" id="content1">
+            		  <ul>
+			           				                    <li style="width:370px;">
+									<div>
+									<div style="float:left;width:335px;overflow:hidden;text-overflow:ellipsis;"><nobr>·  
+										<a class="article_title_a" target="_blank" href="http://www.snhr.gov.cn/article/20170831000000015679/index/%E9%A6%96%E9%A1%B5/%E4%B8%AD%E5%BF%83%E8%A6%81%E9%97%BB">
+																								中国西安人才市场召开会议安排近期工作
+																							<div class="article_title_time" style="display:none">2017-08-31</div>
+										</a></nobr></div>
+    								<div class="img_" style="float:left;width:10px;padding-left:5px;display:none"> 
+    									<img src="./rcjlzxfw/new.gif">
+    								</div>
+									</div>
+								</li>
+									                    <li style="width:370px;">
+									<div>
+									<div style="float:left;width:335px;overflow:hidden;text-overflow:ellipsis;"><nobr>·  
+										<a class="article_title_a" target="_blank" href="http://www.snhr.gov.cn/article/20170831000000015674/index/%E9%A6%96%E9%A1%B5/%E4%B8%AD%E5%BF%83%E8%A6%81%E9%97%BB">
+																								我省举办贫困地区职业经理人培训班
+																							<div class="article_title_time" style="display:none">2017-08-31</div>
+										</a></nobr></div>
+    								<div class="img_" style="float:left;width:10px;padding-left:5px;display:none"> 
+    									<img src="./rcjlzxfw/new.gif">
+    								</div>
+									</div>
+								</li>
+									                    <li style="width:370px;">
+									<div>
+									<div style="float:left;width:335px;overflow:hidden;text-overflow:ellipsis;"><nobr>·  
+										<a class="article_title_a" target="_blank" href="http://www.snhr.gov.cn/article/20170829000000015595/index/%E9%A6%96%E9%A1%B5/%E4%B8%AD%E5%BF%83%E8%A6%81%E9%97%BB">
+																								我省举办从大学生村官中招聘乡镇扶贫人员培训班
+																							<div class="article_title_time" style="display:none">2017-08-29</div>
+										</a></nobr></div>
+    								<div class="img_" style="float:left;width:10px;padding-left:5px;display:none"> 
+    									<img src="./rcjlzxfw/new.gif">
+    								</div>
+									</div>
+								</li>
+									                    <li style="width:370px;">
+									<div>
+									<div style="float:left;width:335px;overflow:hidden;text-overflow:ellipsis;"><nobr>·  
+										<a class="article_title_a" target="_blank" href="http://www.snhr.gov.cn/article/20170818000000015385/index/%E9%A6%96%E9%A1%B5/%E4%B8%AD%E5%BF%83%E8%A6%81%E9%97%BB">
+																								我省举办高层次人才服务中心揭牌仪式暨高层次人才座谈会
+																							<div class="article_title_time" style="display:none">2017-08-18</div>
+										</a></nobr></div>
+    								<div class="img_" style="float:left;width:10px;padding-left:5px;display:none"> 
+    									<img src="./rcjlzxfw/new.gif">
+    								</div>
+									</div>
+								</li>
+									                    <li style="width:370px;">
+									<div>
+									<div style="float:left;width:335px;overflow:hidden;text-overflow:ellipsis;"><nobr>·  
+										<a class="article_title_a" target="_blank" href="http://www.snhr.gov.cn/article/20170811000000015297/index/%E9%A6%96%E9%A1%B5/%E4%B8%AD%E5%BF%83%E8%A6%81%E9%97%BB">
+																								中国西安人才市场召开专题会议
+																							<div class="article_title_time" style="display:none">2017-08-11</div>
+										</a></nobr></div>
+    								<div class="img_" style="float:left;width:10px;padding-left:5px;display:none"> 
+    									<img src="./rcjlzxfw/new.gif">
+    								</div>
+									</div>
+								</li>
+									                    <li style="width:370px;">
+									<div>
+									<div style="float:left;width:335px;overflow:hidden;text-overflow:ellipsis;"><nobr>·  
+										<a class="article_title_a" target="_blank" href="http://www.snhr.gov.cn/article/20170810000000015275/index/%E9%A6%96%E9%A1%B5/%E4%B8%AD%E5%BF%83%E8%A6%81%E9%97%BB">
+																								省人才交流服务中心召开2017年上半年党风廉政建设工作汇报会
+																							<div class="article_title_time" style="display:none">2017-08-10</div>
+										</a></nobr></div>
+    								<div class="img_" style="float:left;width:10px;padding-left:5px;display:none"> 
+    									<img src="./rcjlzxfw/new.gif">
+    								</div>
+									</div>
+								</li>
+									                    <li style="width:370px;">
+									<div>
+									<div style="float:left;width:335px;overflow:hidden;text-overflow:ellipsis;"><nobr>·  
+										<a class="article_title_a" target="_blank" href="http://www.snhr.gov.cn/article/20170809000000015273/index/%E9%A6%96%E9%A1%B5/%E4%B8%AD%E5%BF%83%E8%A6%81%E9%97%BB">
+																								我省举办全省人力资源市场一线观察和供求信息发布工作培训
+																							<div class="article_title_time" style="display:none">2017-08-09</div>
+										</a></nobr></div>
+    								<div class="img_" style="float:left;width:10px;padding-left:5px;display:none"> 
+    									<img src="./rcjlzxfw/new.gif">
+    								</div>
+									</div>
+								</li>
+									                    <li style="width:370px;">
+									<div>
+									<div style="float:left;width:335px;overflow:hidden;text-overflow:ellipsis;"><nobr>·  
+										<a class="article_title_a" target="_blank" href="http://www.snhr.gov.cn/article/20170807000000015219/index/%E9%A6%96%E9%A1%B5/%E4%B8%AD%E5%BF%83%E8%A6%81%E9%97%BB">
+																								陕西省人才交流服务中心召开在陕实习清华学子汇报交流会
+																							<div class="article_title_time" style="display:none">2017-08-07</div>
+										</a></nobr></div>
+    								<div class="img_" style="float:left;width:10px;padding-left:5px;display:none"> 
+    									<img src="./rcjlzxfw/new.gif">
+    								</div>
+									</div>
+								</li>
+									                    <li style="width:370px;">
+									<div>
+									<div style="float:left;width:335px;overflow:hidden;text-overflow:ellipsis;"><nobr>·  
+										<a class="article_title_a" target="_blank" href="http://www.snhr.gov.cn/article/20170807000000015218/index/%E9%A6%96%E9%A1%B5/%E4%B8%AD%E5%BF%83%E8%A6%81%E9%97%BB">
+																								刘鹏程主任以普通党员身份参加综合部党支部 党日活动
+																							<div class="article_title_time" style="display:none">2017-08-07</div>
+										</a></nobr></div>
+    								<div class="img_" style="float:left;width:10px;padding-left:5px;display:none"> 
+    									<img src="./rcjlzxfw/new.gif">
+    								</div>
+									</div>
+								</li>
+									                    <li style="width:370px;">
+									<div>
+									<div style="float:left;width:335px;overflow:hidden;text-overflow:ellipsis;"><nobr>·  
+										<a class="article_title_a" target="_blank" href="http://www.snhr.gov.cn/article/20170728000000015102/index/%E9%A6%96%E9%A1%B5/%E4%B8%AD%E5%BF%83%E8%A6%81%E9%97%BB">
+																								中国西安人才市场召开专题会议传达学习厅年中务虚会和作风建设座谈会精神
+																							<div class="article_title_time" style="display:none">2017-07-28</div>
+										</a></nobr></div>
+    								<div class="img_" style="float:left;width:10px;padding-left:5px;display:none"> 
+    									<img src="./rcjlzxfw/new.gif">
+    								</div>
+									</div>
+								</li>
+									                    <li style="width:370px;">
+									<div>
+									<div style="float:left;width:335px;overflow:hidden;text-overflow:ellipsis;"><nobr>·  
+										<a class="article_title_a" target="_blank" href="http://www.snhr.gov.cn/article/20170704000000014761/index/%E9%A6%96%E9%A1%B5/%E4%B8%AD%E5%BF%83%E8%A6%81%E9%97%BB">
+																								中国共产党陕西省人才交流服务中心新经济组织第二次代表大会顺利召开
+																							<div class="article_title_time" style="display:none">2017-07-04</div>
+										</a></nobr></div>
+    								<div class="img_" style="float:left;width:10px;padding-left:5px;display:none"> 
+    									<img src="./rcjlzxfw/new.gif">
+    								</div>
+									</div>
+								</li>
+									          </ul>
+            </div>
+			
+			<div class="notBot" id="content2" style="display:none">
+            		  <ul>
+			           				                    <li style="width:370px;">
+									<div>
+									<div style="float:left;width:335px;overflow:hidden;text-overflow:ellipsis;"><nobr>·  
+										<a class="article_title_a" target="_blank" href="http://www.snhr.gov.cn/article/20170904000000015689/index/%E9%A6%96%E9%A1%B5/%E8%A1%8C%E4%B8%9A%E5%8A%A8%E6%80%81">
+																								这5年，社保安全网稳稳托住民生保障
+																							<div class="article_title_time" style="display:none">2017-09-04</div>
+										</a></nobr></div>
+    								<div class="img_" style="float: left; width: 10px; padding-left: 5px;"> 
+    									<img src="./rcjlzxfw/new.gif">
+    								</div>
+									</div>
+								</li>
+									                    <li style="width:370px;">
+									<div>
+									<div style="float:left;width:335px;overflow:hidden;text-overflow:ellipsis;"><nobr>·  
+										<a class="article_title_a" target="_blank" href="http://www.snhr.gov.cn/article/20170904000000015690/index/%E9%A6%96%E9%A1%B5/%E8%A1%8C%E4%B8%9A%E5%8A%A8%E6%80%81">
+																								全国人才资源统计结果显示：我国提速迈向人才强国
+																							<div class="article_title_time" style="display:none">2017-09-04</div>
+										</a></nobr></div>
+    								<div class="img_" style="float: left; width: 10px; padding-left: 5px;"> 
+    									<img src="./rcjlzxfw/new.gif">
+    								</div>
+									</div>
+								</li>
+									                    <li style="width:370px;">
+									<div>
+									<div style="float:left;width:335px;overflow:hidden;text-overflow:ellipsis;"><nobr>·  
+										<a class="article_title_a" target="_blank" href="http://www.snhr.gov.cn/article/20170823000000015434/index/%E9%A6%96%E9%A1%B5/%E8%A1%8C%E4%B8%9A%E5%8A%A8%E6%80%81">
+																								李克强谈去产能：确保多余人员转岗不下岗转业不失业
+																							<div class="article_title_time" style="display:none">2017-08-23</div>
+										</a></nobr></div>
+    								<div class="img_" style="float:left;width:10px;padding-left:5px;display:none"> 
+    									<img src="./rcjlzxfw/new.gif">
+    								</div>
+									</div>
+								</li>
+									                    <li style="width:370px;">
+									<div>
+									<div style="float:left;width:335px;overflow:hidden;text-overflow:ellipsis;"><nobr>·  
+										<a class="article_title_a" target="_blank" href="http://www.snhr.gov.cn/article/20170823000000015435/index/%E9%A6%96%E9%A1%B5/%E8%A1%8C%E4%B8%9A%E5%8A%A8%E6%80%81">
+																								人社部门扎实推进就业扶贫工作
+																							<div class="article_title_time" style="display:none">2017-08-23</div>
+										</a></nobr></div>
+    								<div class="img_" style="float:left;width:10px;padding-left:5px;display:none"> 
+    									<img src="./rcjlzxfw/new.gif">
+    								</div>
+									</div>
+								</li>
+									                    <li style="width:370px;">
+									<div>
+									<div style="float:left;width:335px;overflow:hidden;text-overflow:ellipsis;"><nobr>·  
+										<a class="article_title_a" target="_blank" href="http://www.snhr.gov.cn/article/20170823000000015432/index/%E9%A6%96%E9%A1%B5/%E8%A1%8C%E4%B8%9A%E5%8A%A8%E6%80%81">
+																								2017年全省计划安置军转干部统一考试圆满完成
+																							<div class="article_title_time" style="display:none">2017-08-23</div>
+										</a></nobr></div>
+    								<div class="img_" style="float:left;width:10px;padding-left:5px;display:none"> 
+    									<img src="./rcjlzxfw/new.gif">
+    								</div>
+									</div>
+								</li>
+									                    <li style="width:370px;">
+									<div>
+									<div style="float:left;width:335px;overflow:hidden;text-overflow:ellipsis;"><nobr>·  
+										<a class="article_title_a" target="_blank" href="http://www.snhr.gov.cn/article/20170823000000015433/index/%E9%A6%96%E9%A1%B5/%E8%A1%8C%E4%B8%9A%E5%8A%A8%E6%80%81">
+																								省人社厅召开专题会议贯彻落实全省追赶超越第二季度点评视频会议精神
+																							<div class="article_title_time" style="display:none">2017-08-23</div>
+										</a></nobr></div>
+    								<div class="img_" style="float:left;width:10px;padding-left:5px;display:none"> 
+    									<img src="./rcjlzxfw/new.gif">
+    								</div>
+									</div>
+								</li>
+									                    <li style="width:370px;">
+									<div>
+									<div style="float:left;width:335px;overflow:hidden;text-overflow:ellipsis;"><nobr>·  
+										<a class="article_title_a" target="_blank" href="http://www.snhr.gov.cn/article/20170815000000015328/index/%E9%A6%96%E9%A1%B5/%E8%A1%8C%E4%B8%9A%E5%8A%A8%E6%80%81">
+																								人社部等三部门出台社保扶贫意见：减少缴费 提高待遇
+																							<div class="article_title_time" style="display:none">2017-08-15</div>
+										</a></nobr></div>
+    								<div class="img_" style="float:left;width:10px;padding-left:5px;display:none"> 
+    									<img src="./rcjlzxfw/new.gif">
+    								</div>
+									</div>
+								</li>
+									                    <li style="width:370px;">
+									<div>
+									<div style="float:left;width:335px;overflow:hidden;text-overflow:ellipsis;"><nobr>·  
+										<a class="article_title_a" target="_blank" href="http://www.snhr.gov.cn/article/20170815000000015329/index/%E9%A6%96%E9%A1%B5/%E8%A1%8C%E4%B8%9A%E5%8A%A8%E6%80%81">
+																								缓解“看病难、看病贵”！这些医改政策你需要了解
+																							<div class="article_title_time" style="display:none">2017-08-15</div>
+										</a></nobr></div>
+    								<div class="img_" style="float:left;width:10px;padding-left:5px;display:none"> 
+    									<img src="./rcjlzxfw/new.gif">
+    								</div>
+									</div>
+								</li>
+									                    <li style="width:370px;">
+									<div>
+									<div style="float:left;width:335px;overflow:hidden;text-overflow:ellipsis;"><nobr>·  
+										<a class="article_title_a" target="_blank" href="http://www.snhr.gov.cn/article/20170815000000015330/index/%E9%A6%96%E9%A1%B5/%E8%A1%8C%E4%B8%9A%E5%8A%A8%E6%80%81">
+																								前7月我省贫困劳动力实现转移就业17万余人
+																							<div class="article_title_time" style="display:none">2017-08-15</div>
+										</a></nobr></div>
+    								<div class="img_" style="float:left;width:10px;padding-left:5px;display:none"> 
+    									<img src="./rcjlzxfw/new.gif">
+    								</div>
+									</div>
+								</li>
+									                    <li style="width:370px;">
+									<div>
+									<div style="float:left;width:335px;overflow:hidden;text-overflow:ellipsis;"><nobr>·  
+										<a class="article_title_a" target="_blank" href="http://www.snhr.gov.cn/article/20170810000000015289/index/%E9%A6%96%E9%A1%B5/%E8%A1%8C%E4%B8%9A%E5%8A%A8%E6%80%81">
+																								数读我国就业工作五年成就
+																							<div class="article_title_time" style="display:none">2017-08-10</div>
+										</a></nobr></div>
+    								<div class="img_" style="float:left;width:10px;padding-left:5px;display:none"> 
+    									<img src="./rcjlzxfw/new.gif">
+    								</div>
+									</div>
+								</li>
+									                    <li style="width:370px;">
+									<div>
+									<div style="float:left;width:335px;overflow:hidden;text-overflow:ellipsis;"><nobr>·  
+										<a class="article_title_a" target="_blank" href="http://www.snhr.gov.cn/article/20170810000000015287/index/%E9%A6%96%E9%A1%B5/%E8%A1%8C%E4%B8%9A%E5%8A%A8%E6%80%81">
+																								省脱贫攻坚指挥部考核省人社厅上半年就业扶贫工作
+																							<div class="article_title_time" style="display:none">2017-08-10</div>
+										</a></nobr></div>
+    								<div class="img_" style="float:left;width:10px;padding-left:5px;display:none"> 
+    									<img src="./rcjlzxfw/new.gif">
+    								</div>
+									</div>
+								</li>
+									          </ul>
+            </div>
+			
+			
+        </div>
+        <div class="news">
+       		<div class="newsTit">
+                <span class="xwdt">通知公告</span>
+                <span class="more"><a href="http://www.snhr.gov.cn/article/more/001-002-003/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">更多&gt;&gt;</a></span>
+            </div>
+            <div class="newsBot">
+                <div id="demo" style="overflow:hidden;height:300px;width:291px;"> 
+                    <div id="demo1" style="height:290px;overflow:hidden">
+                    	  <ul><li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170831000000015670/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											<font color="red">关于2017年度陕西省社会人才工程师职称评审的通知</font>
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-09-06</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li><li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170831000000015672/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											<font color="red">关于2017年度陕西省社会人才中小学教师初级职称评审工作的通知</font>
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-09-05</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li><li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170831000000015671/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											<font color="red">关于2017年度陕西省社会人才助理工程师职称评审工作的通知</font>
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-09-05</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li><li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170901000000015681/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											<font color="red">中国（陕西）自由贸易试验区工作办公室公开遴选公务员公告 </font>
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-09-01</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li><li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170831000000015678/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											<font color="red">陕西省人力资源和社会保障厅转发人力资源社会保障部关于开展2017年全国高校毕业生就业服务月活动的通知</font>
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-08-31</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li><li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170831000000015673/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											<font color="red">关于2017年度陕西省社会人才中小学一级教师职称评审的通知</font>
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-08-31</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li><li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170822000000015429/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											<font color="red">公      告</font>
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-08-22</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li><li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170314000000013093/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											关于省人才中心代理人员办理新迁入户籍业务的通知
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-08-18</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li><li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170810000000015291/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											<font color="red">陕西省人才交流服务中心公告</font>
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-08-11</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li><li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170807000000015220/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											<font color="red">关于预收2018年度灵活就业人员医疗保险金的通知</font>
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-08-07</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li><li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170710000000014812/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											<font color="red">关于2017年度灵活就业人员养老保险缴费的公告</font>
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-07-10</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li><li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170710000000014811/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											<font color="red">关于申报2017年度企业稳岗补贴的通知</font>
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-07-10</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li><li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170630000000014625/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											关于举办2017年一级建造师执业资格考前培训班的通知
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-06-30</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li><li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170602000000014236/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											关于清查报送未就业贫困高校毕业生信息的通知
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-06-02</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li><li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170522000000014125/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											中国西安人才市场陕西世纪人才开发有限公司2017年招聘工作人员公告
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-05-22</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li><li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170508000000014003/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											2017年陕西省民营企业招聘周活动总结
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-05-08</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li><li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170504000000013960/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											关于为党政机关企事业单位公开招聘提供考试评价服务的函
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-05-04</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li><li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170502000000013896/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											关于组织清华大学学生赴陕西重点企业开展暑期实习活动的函
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-05-02</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li><li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170420000000013777/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											2017年陕西省民营企业招聘周活动内容公告
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-04-21</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li><li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170419000000013733/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											陕西省人才交流服务中心四月份高校就业创业指导系列活动公告
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-04-19</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li>
+				          				          		<li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170831000000015670/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											<font color="red">关于2017年度陕西省社会人才工程师职称评审的通知</font>
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-09-06</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li>
+				          				          		<li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170831000000015672/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											<font color="red">关于2017年度陕西省社会人才中小学教师初级职称评审工作的通知</font>
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-09-05</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li>
+				          				          		<li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170831000000015671/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											<font color="red">关于2017年度陕西省社会人才助理工程师职称评审工作的通知</font>
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-09-05</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li>
+				          				          		<li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170901000000015681/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											<font color="red">中国（陕西）自由贸易试验区工作办公室公开遴选公务员公告 </font>
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-09-01</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li>
+				          				          		<li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170831000000015678/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											<font color="red">陕西省人力资源和社会保障厅转发人力资源社会保障部关于开展2017年全国高校毕业生就业服务月活动的通知</font>
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-08-31</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li>
+				          				          		<li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170831000000015673/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											<font color="red">关于2017年度陕西省社会人才中小学一级教师职称评审的通知</font>
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-08-31</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li>
+				          				          		<li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170822000000015429/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											<font color="red">公      告</font>
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-08-22</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li>
+				          				          		<li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170314000000013093/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											关于省人才中心代理人员办理新迁入户籍业务的通知
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-08-18</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li>
+				          				          		<li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170810000000015291/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											<font color="red">陕西省人才交流服务中心公告</font>
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-08-11</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li>
+				          				          		<li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170807000000015220/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											<font color="red">关于预收2018年度灵活就业人员医疗保险金的通知</font>
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-08-07</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li>
+				          				          		<li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170710000000014812/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											<font color="red">关于2017年度灵活就业人员养老保险缴费的公告</font>
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-07-10</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li>
+				          				          		<li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170710000000014811/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											<font color="red">关于申报2017年度企业稳岗补贴的通知</font>
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-07-10</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li>
+				          				          		<li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170630000000014625/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											关于举办2017年一级建造师执业资格考前培训班的通知
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-06-30</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li>
+				          				          		<li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170602000000014236/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											关于清查报送未就业贫困高校毕业生信息的通知
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-06-02</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li>
+				          				          		<li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170522000000014125/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											中国西安人才市场陕西世纪人才开发有限公司2017年招聘工作人员公告
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-05-22</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li>
+				          				          		<li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170508000000014003/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											2017年陕西省民营企业招聘周活动总结
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-05-08</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li>
+				          				          		<li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170504000000013960/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											关于为党政机关企事业单位公开招聘提供考试评价服务的函
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-05-04</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li>
+				          				          		<li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170502000000013896/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											关于组织清华大学学生赴陕西重点企业开展暑期实习活动的函
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-05-02</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li>
+				          				          		<li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170420000000013777/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											2017年陕西省民营企业招聘周活动内容公告
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-04-21</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li>
+				          				          		<li style="">
+									<nobr>
+										<div style="float:left;width:259px;overflow:hidden;text-overflow:ellipsis;">· 
+											<a target="_blank" href="http://www.snhr.gov.cn/article/20170419000000013733/index/%E9%A6%96%E9%A1%B5/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A">
+																											陕西省人才交流服务中心四月份高校就业创业指导系列活动公告
+																								</a>
+										</div>
+									</nobr>
+										<div class="article_title_time_xwdt" style="display:none">2017-04-19</div>
+										<div style="overflow: hidden;float:right;display:none" class="xwdt_img_">
+											<img src="./rcjlzxfw/new.gif">
+										</div>
+								</li>
+				          				        </ul>
+                    </div>
+                    <div id="demo2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="con2" style="height: 376px;">
+			<div class="zzjg">
+                <span class="zzLeft"></span>
+                <div class="zzCenter">
+                    <span style="float:left">组织机构</span>
+                    <span class="more"><a href="http://www.snhr.gov.cn/jgjs/001-002-012-014">更多&gt;&gt;</a></span>
+                </div>
+                <span class="zzRight"></span>
+                <div class="zzBot">
+                    <ul>
+                        <li><a href="http://www.snhr.gov.cn/jgjs/001-002-012-014" target="_blank"><img src="./rcjlzxfw/jg.jpg" width="96" height="78"></a></li>
+                        <li><a href="http://www.snhr.gov.cn/jgjs/001-002-012-001" target="_blank"><img src="./rcjlzxfw/ld.jpg" width="96" height="78"></a></li>
+                        <li><a href="http://www.snhr.gov.cn/jgjs/001-002-012-002" target="_blank"><img src="./rcjlzxfw/bm.jpg" width="96" height="78"></a></li>
+                        <li><a href="http://www.snhr.gov.cn/jgjs/001-002-012-015" target="_blank"><img src="./rcjlzxfw/fb.jpg" width="96" height="78"></a></li>
+                    </ul>
+                </div>
+                <div class="tplj">
+                    <ul>
+                        <li><a href="http://www.snhr.gov.cn/article/more/001-007-002/rcjl/%E4%BA%BA%E6%89%8D%E4%BA%A4%E6%B5%81/%E4%B8%80%E7%BA%BF%E8%A7%82%E5%AF%9F" target="_blank"><img src="./rcjlzxfw/scdt.jpg" width="209" height="52"></a></li>
+                        <li><a href="http://www.snhr.gov.cn/dyzc/" target="_blank"><img src="./rcjlzxfw/scgl.jpg" width="209" height="52"></a></li>
+                        <li><a href="http://www.snjob.gov.cn/cms/bst/402880e83e821b9b013e821c20560000" target="_blank"><img src="./rcjlzxfw/zpxx.jpg" width="209" height="52"></a></li>
+                        <!--<li><a href="/article/more/001-002-007/index/首页/热点专题" target="_blank"><img src="http://images.xajob.com/ggfw//image/index/rdzt.jpg" width="209" height="39" /></a></li>-->
+                    </ul>
+                </div>
+            </div>
+      		<div class="ywdt">
+                <span class="ywLeft"></span>
+                <div class="ywCenter"><img src="./rcjlzxfw/ywdt.png" width="102" height="33"> </div>
+                <span class="ywRight"></span>
+                <div class="ywBot">
+                  <ul style="border-bottom:1px solid #9ed2f3;">
+                        <li>
+                            <div class="ywUp">
+                                <span class="ywName" style="color:#f00;float:left;">人事代理</span>
+                                <span class="more"><a href="http://www.snhr.gov.cn/rsdl" target="_blank">更多&gt;&gt;</a></span>	
+                            </div>
+                            <div class="ywDown">
+                                <div class="ywtb">
+                                    <img src="./rcjlzxfw/yw01.png" width="65" height="65">
+                                </div>
+                                <div class="ywList">
+                                    <p>·<a href="http://www.snhr.gov.cn/rsdl" target="_blank">档案接收</a></p>
+                                    <p>·<a href="http://www.snhr.gov.cn/rsdlQuery/query/getTalentsIntroduceQueryPage" target="_blank">人才引进</a></p>
+                                    <p>·<a href="http://www.snhr.gov.cn/rsdlQuery/query/getHujiQueryPage" target="_blank">户籍管理</a></p>
+                                    <p>·<a href="http://www.snhr.gov.cn/rsdlQuery/query/shiftFertility?type=list" target="_blank">计划生育</a></p>
+                                </div>
+                            </div>
+                    </li>
+                        <li>
+                            <div class="ywUp">
+                              <span class="ywName" style="color:#f00;float:left;">档案管理</span>
+                              <span class="more"><a href="http://www.snhr.gov.cn/dagl" target="_blank">更多&gt;&gt;</a></span>	
+                            </div>
+                            <div class="ywDown">
+                                <div class="ywtb">
+                                  <img src="./rcjlzxfw/yw02.png" width="65" height="65"> 
+                                </div>
+                                <div class="ywList">
+                                    <p>·<a href="http://www.snhr.gov.cn/dagl" target="_blank">出具证明</a></p>
+                                    <p>·<a href="http://www.snhr.gov.cn/dagl" target="_blank">转正定级</a></p>
+                                    <p>·<a href="http://www.snhr.gov.cn/dagl" target="_blank">学历验证</a></p>
+                                    <p>·<a href="http://as.xajob.com/srczxweb/" target="_blank">影像档案</a></p>
+                                </div>
+                            </div>
+                    </li>
+                        <li>
+                            <div class="ywUp">
+                              <span class="ywName" style="color:#f00;float:left;">社保代理</span>
+                              <span class="more"><a href="http://www.snhr.gov.cn/sbdl" target="_blank">更多&gt;&gt;</a></span>	
+                            </div>
+                            <div class="ywDown">
+                                <div class="ywtb">
+                                  <img src="./rcjlzxfw/yw03.png" width="65" height="65">
+                                </div>
+                                <div class="ywList">
+                                    <p>·<a href="http://www.snhr.gov.cn/sbdl" target="_blank">养老保险</a></p>
+                                    <p>·<a href="http://www.snhr.gov.cn/sbdl" target="_blank">医疗保险</a></p>
+                                    <p>·<a href="http://www.snhr.gov.cn/sbdl" target="_blank">住房公积金</a></p>
+                                    <p>·<a href="http://www.snhr.gov.cn/sbdl" target="_blank">4050补贴</a></p>
+                                </div>
+                            </div>
+                    </li>
+                        <li class="noBg">
+                            <div class="ywUp">
+                              <span class="ywName" style="color:#f00;float:left;">党员管理</span>
+                              <span class="more"><a href="http://www.snhr.gov.cn/dyzc" target="_blank">更多&gt;&gt;</a></span>	
+                            </div>
+                            <div class="ywDown">
+                                <div class="ywtb">
+                                  <img src="./rcjlzxfw/yw04.png" width="65" height="65">
+                                </div>
+                                <div class="ywList">
+                                    <p>·<a href="http://www.snhr.gov.cn/dyzc" target="_blank">关系接转</a></p>
+                                    <p>·<a href="http://www.snhr.gov.cn/dyzc" target="_blank">党员转正</a></p>
+                                    <p>·<a href="http://www.snhr.gov.cn/dyzc" target="_blank">党费收缴</a></p>
+                                    <p>·<a href="http://www.snhr.gov.cn/dyzc" target="_blank">发展党员</a></p>
+                                </div>
+                            </div>
+                    </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <div class="ywUp">
+                              <span class="ywName" style="color:#f00;float:left;">毕业生就业</span>
+                              <span class="more"><a href="http://www.snhr.gov.cn/bysjy" target="_blank">更多&gt;&gt;</a></span>	
+                            </div>
+                            <div class="ywDown">
+                                <div class="ywtb">
+                                  <img src="./rcjlzxfw/yw05.png" width="65" height="65">
+                                </div>
+                                <div class="ywList">
+                                    <p>·<a href="http://www.snhr.gov.cn/bysjyzd/index" target="_blank">就业指导</a></p>
+                                    <p>·<a href="http://www.snhr.gov.cn/bysjy/jyjx" target="_blank">就业见习</a></p>
+                                    <p>·<a href="http://www.snhr.gov.cn/bysjy/zxjh" target="_blank">振兴计划</a></p>
+                                    <p>·<a href="http://www.snhr.gov.cn/bysjy" target="_blank">就业报到</a></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ywUp">
+                              <span class="ywName" style="color:#f00;float:left;">大学生创业</span>
+                              <span class="more"><a href="http://www.snhr.gov.cn/dxscy" target="_blank">更多&gt;&gt;</a></span>	
+                            </div>
+                            <div class="ywDown">
+                                <div class="ywtb">
+                                  <img src="./rcjlzxfw/yw06.png" width="67" height="65">
+                                </div>
+                                <div class="ywList">
+                                    <p>·<a href="http://www.snhr.gov.cn/article/more/001-009-007/dxscy/%E5%A4%A7%E5%AD%A6%E7%94%9F%E5%88%9B%E4%B8%9A/%E9%A1%B9%E7%9B%AE%E8%AE%BA%E8%AF%81" target="_blank">项目论证</a></p>
+                                    <p>·<a href="http://www.snhr.gov.cn/dxscy" target="_blank">创业基金</a></p>
+                                    <p>·<a href="http://www.snhr.gov.cn/article/more/001-009-005/dxscy/%E5%A4%A7%E5%AD%A6%E7%94%9F%E5%88%9B%E4%B8%9A/%E5%88%9B%E4%B8%9A%E5%9F%BA%E5%9C%B0" target="_blank">创业基地</a></p>
+                                    <p>·<a href="http://www.snhr.gov.cn/article/more/001-009-006/dxscy/%E5%A4%A7%E5%AD%A6%E7%94%9F%E5%88%9B%E4%B8%9A/%E5%88%9B%E4%B8%9A%E5%AF%BC%E5%B8%88" target="_blank">创业导师</a></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ywUp">
+                              <span class="ywName" style="color:#f00;float:left;">培训评价</span>
+                              <span class="more"><a href="http://www.snhr.gov.cn/pxpj" target="_blank">更多&gt;&gt;</a></span>	
+                            </div>
+                            <div class="ywDown">
+                                <div class="ywtb">
+                                  <img src="./rcjlzxfw/yw07.png" width="65" height="65">
+                                </div>
+                                <div class="ywList">
+                                    <p>·<a href="http://www.snhr.gov.cn/pxpj" target="_blank">人才培训</a></p>
+                                    <p>·<a href="http://www.snhr.gov.cn/article/more/001-014-013/pxpj/%E5%9F%B9%E8%AE%AD%E8%AF%84%E4%BB%B7/%E4%BA%BA%E6%89%8D%E7%B4%A0%E8%B4%A8%E6%B5%8B%E8%AF%84" target="_blank">人才评价</a></p>
+                                    <p>·<a href="http://www.snhr.gov.cn/article/more/001-014-011/pxpj/%E5%9F%B9%E8%AE%AD%E8%AF%84%E4%BB%B7/%E5%85%AC%E5%BC%80%E6%8B%9B%E8%81%98%E8%80%83%E8%AF%95" target="_blank">公开招考</a></p>
+                                    <p>·<a href="http://www.snhr.gov.cn/zcpj" target="_blank">职称评价</a></p>
+                                </div>
+                            </div>
+                        </li>
+                      <li class="noBg">
+                            <div class="ywUp">
+                              <span class="ywName" style="color:#f00;float:left;">人才交流</span>
+                              <span class="more"><a href="http://www.snhr.gov.cn/rcjl" target="_blank">更多&gt;&gt;</a></span>	
+                            </div>
+                            <div class="ywDown">
+                                <div class="ywtb">
+                                  <img src="./rcjlzxfw/yw08.png" width="65" height="65">
+                                </div>
+                                <div class="ywList">
+                                    <p>·<a href="http://www.snhr.gov.cn/article/more/001-007-002/rcjl/%E4%BA%BA%E6%89%8D%E4%BA%A4%E6%B5%81/%E4%B8%80%E7%BA%BF%E8%A7%82%E5%AF%9F" target="_blank">一线观察</a></p>
+                                    <p>·<a href="http://www.snhr.gov.cn/rcjl" target="_blank">市场监测</a></p>
+                                    <p>·<a href="http://www.snhr.gov.cn/rcjl" target="_blank">赴外引才</a></p>
+                                    <p>·<a href="http://www.snhr.gov.cn/rcjl" target="_blank">省际交流</a></p>
+                                </div>
+                            </div>
+                      </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="hf"> 
+                 <a target="_blank" href="http://images.xajob.com/ggfw//image/index/ywqd/index.html"><img src="./rcjlzxfw/fwqd.jpg" style="cursor:pointer" width="1000" height="94"></a>
+            </div>
+            <div class="hf" id="hfs" style="display: none;"> 
+                 <img id="advertise0" style="cursor:pointer" width="1000" height="94"> 
+            </div>
+            <div class="hf" id="hfx" style="display: none;"> 
+                 <img id="advertise1" style="cursor:pointer" width="1000" height="94"> 
+            </div>
+    </div>
+    <div id="con3">
+        <div class="wsfw">
+            <span class="wsLeft"></span>
+            <div class="wsCenter"><img src="./rcjlzxfw/wsfw.png" width="126" height="33"> </div>
+            <span class="wsRight"></span>
+        </div>
+        <!--内容-->
+        <div class="wsBot">
+			<div class="wscx">
+                <span class="wscxLeft"></span>
+                <div class="wscxCenter">
+                    <span style="float:left">网上查询</span>
+                    <span class="more"><a href="http://www.snhr.gov.cn/more_search">更多&gt;&gt;</a></span>
+                </div>
+                <span class="wscxRight"></span>
+                <div class="wscxBot">
+                    <ul>
+                        <li><a href="http://www.snhr.gov.cn/dagl" target="_blank"><img src="./rcjlzxfw/wscx01.png" width="209" height="50"></a></li>
+                        <li><a href="http://www.snhr.gov.cn/rsdlQuery/query/getHujiQueryPage" target="_blank"><img src="./rcjlzxfw/wscx02.png" width="209" height="50"></a></li>
+                        <li><a href="http://www.snhr.gov.cn/sbdl" target="_blank"><img src="./rcjlzxfw/wscx03.png" width="209" height="50"></a></li>
+                        <li><a href="http://www.snhr.gov.cn/more_search" target="_blank"><img src="./rcjlzxfw/wscx04.png" width="209" height="50"></a></li>
+                    </ul>
+                </div>
+                
+            </div>
+			<div class="cybg">
+                <span class="cybgLeft"></span>
+                <div class="cybgCenter">
+                    <span style="float:left">常用表格下载</span>
+                    <span class="more"><a href="http://www.snhr.gov.cn/resource/downloadList/index/getall/%E4%B8%8B%E8%BD%BD%E4%B8%AD%E5%BF%83" target="_blank">更多&gt;&gt;</a></span>
+                </div>
+                <span class="cybgRight"></span>
+                <div class="cybgBot">
+                    <ul> 
+						                        <li style="width:350px;overflow:hidden;text-overflow:ellipsis;"><nobr>· <a href="http://www.snhr.gov.cn/resource/getFile/20170811000000000126" target="_blank">
+									党员基本情况登记表.doc
+						</a></nobr></li>
+						                        <li style="width:350px;overflow:hidden;text-overflow:ellipsis;"><nobr>· <a href="http://www.snhr.gov.cn/resource/getFile/20170811000000000125" target="_blank">
+									《党员基本情况登记表》填表说明.doc
+						</a></nobr></li>
+						                        <li style="width:350px;overflow:hidden;text-overflow:ellipsis;"><nobr>· <a href="http://www.snhr.gov.cn/resource/getFile/20170804000000000124" target="_blank">
+									陕西省高校毕业生创业基金贷款提前还款申请表.doc
+						</a></nobr></li>
+						                        <li style="width:350px;overflow:hidden;text-overflow:ellipsis;"><nobr>· <a href="http://www.snhr.gov.cn/resource/getFile/20170602000000000123" target="_blank">
+									2017新经济组织党委第二次党代表大会代表名额分配表及登记表.doc
+						</a></nobr></li>
+						                        <li style="width:350px;overflow:hidden;text-overflow:ellipsis;"><nobr>· <a href="http://www.snhr.gov.cn/resource/getFile/20170602000000000122" target="_blank">
+									2017新经济评优优秀党务工作者推荐登记表.docx
+						</a></nobr></li>
+						                        <li style="width:350px;overflow:hidden;text-overflow:ellipsis;"><nobr>· <a href="http://www.snhr.gov.cn/resource/getFile/20170602000000000121" target="_blank">
+									2017新经济评优优秀共产党员推荐登记表.doc
+						</a></nobr></li>
+						                        <li style="width:350px;overflow:hidden;text-overflow:ellipsis;"><nobr>· <a href="http://www.snhr.gov.cn/resource/getFile/20170401000000000120" target="_blank">
+									附件2：2017年陕西省引进高层次人才需求信息表（社招）.xls
+						</a></nobr></li>
+						                        <li style="width:350px;overflow:hidden;text-overflow:ellipsis;"><nobr>· <a href="http://www.snhr.gov.cn/resource/getFile/20170401000000000119" target="_blank">
+									附件1：2017年陕西省引进高层次人才需求信息表（校招）.xls
+						</a></nobr></li>
+						                        <li style="width:350px;overflow:hidden;text-overflow:ellipsis;"><nobr>· <a href="http://www.snhr.gov.cn/resource/getFile/20161017000000000118" target="_blank">
+									西安市失业人员证明.doc
+						</a></nobr></li>
+						                    </ul>
+                </div>
+                
+            </div>
+			<div class="zcfg">
+                <span class="zcfgLeft"></span>
+                <div class="zcfgCenter">
+                    <span style="float:left">最新政策法规</span>
+                    <span class="more"><a href="http://www.snhr.gov.cn/article/more/001-002-004/index/%E9%A6%96%E9%A1%B5/%E6%94%BF%E7%AD%96%E6%B3%95%E8%A7%84" target="_blank">更多&gt;&gt;</a></span>
+                </div>
+                <span class="zcfgRight"></span>
+                <div class="zcfgBot">
+                    <ul>
+		               			          	<li style="width:330px;overflow:hidden;text-overflow:ellipsis;"><nobr>· <a target="_blank" href="http://www.snhr.gov.cn/article/20170824000000015492/index/%E9%A6%96%E9%A1%B5/%E5%B0%B1%E4%B8%9A%E6%94%BF%E7%AD%96">
+									注重科学性 兼顾灵活性
+						</a></nobr></li>
+			          			          	<li style="width:330px;overflow:hidden;text-overflow:ellipsis;"><nobr>· <a target="_blank" href="http://www.snhr.gov.cn/article/20170810000000015290/index/%E9%A6%96%E9%A1%B5/%E5%B0%B1%E4%B8%9A%E6%94%BF%E7%AD%96">
+									人社部法规司司长芮立新介绍人社部落实《法治政府建设实施纲要（2015-2020年）》工作情况
+						</a></nobr></li>
+			          			          	<li style="width:330px;overflow:hidden;text-overflow:ellipsis;"><nobr>· <a target="_blank" href="http://www.snhr.gov.cn/article/20170803000000015207/index/%E9%A6%96%E9%A1%B5/%E5%B0%B1%E4%B8%9A%E6%94%BF%E7%AD%96">
+									医保支付方式如何改？
+						</a></nobr></li>
+			          			          	<li style="width:330px;overflow:hidden;text-overflow:ellipsis;"><nobr>· <a target="_blank" href="http://www.snhr.gov.cn/article/20170711000000014843/index/%E9%A6%96%E9%A1%B5/%E5%B0%B1%E4%B8%9A%E6%94%BF%E7%AD%96">
+									陕西省人力资源和社会保障厅 陕西省教育厅关于实施高校毕业生就业创业促进计划的通知
+						</a></nobr></li>
+			          			          	<li style="width:330px;overflow:hidden;text-overflow:ellipsis;"><nobr>· <a target="_blank" href="http://www.snhr.gov.cn/article/20170629000000014618/index/%E9%A6%96%E9%A1%B5/%E5%B0%B1%E4%B8%9A%E6%94%BF%E7%AD%96">
+									完善制度 规范程序 提升效能
+						</a></nobr></li>
+			          			          	<li style="width:330px;overflow:hidden;text-overflow:ellipsis;"><nobr>· <a target="_blank" href="http://www.snhr.gov.cn/article/20170629000000014619/index/%E9%A6%96%E9%A1%B5/%E5%B0%B1%E4%B8%9A%E6%94%BF%E7%AD%96">
+									人社部介绍台湾同胞在大陆参加社会保险相关工作
+						</a></nobr></li>
+			          			          	<li style="width:330px;overflow:hidden;text-overflow:ellipsis;"><nobr>· <a target="_blank" href="http://www.snhr.gov.cn/article/20170629000000014620/index/%E9%A6%96%E9%A1%B5/%E5%B0%B1%E4%B8%9A%E6%94%BF%E7%AD%96">
+									我国养老保险基金运行总体平稳
+						</a></nobr></li>
+			          			          	<li style="width:330px;overflow:hidden;text-overflow:ellipsis;"><nobr>· <a target="_blank" href="http://www.snhr.gov.cn/article/20170616000000014342/index/%E9%A6%96%E9%A1%B5/%E5%B0%B1%E4%B8%9A%E6%94%BF%E7%AD%96">
+									失业保险：领多少？如何领？还有哪些待遇？
+						</a></nobr></li>
+			          			          	<li style="width:330px;overflow:hidden;text-overflow:ellipsis;"><nobr>· <a target="_blank" href="http://www.snhr.gov.cn/article/20170616000000014343/index/%E9%A6%96%E9%A1%B5/%E5%B0%B1%E4%B8%9A%E6%94%BF%E7%AD%96">
+									提升就业技能 降低失业风险
+						</a></nobr></li>
+			          		              </ul>
+                </div>
+            </div>
+         </div>
+    </div>
+    
+    <div id="con4">
+        <div class="wsfw">
+            <span class="wsLeft"></span>
+            <div class="wsCenter"><img src="./rcjlzxfw/wshd.png" width="126" height="33"> </div>
+            <span class="wsRight"></span>
+        </div>
+        <!--内容开始-->
+        <div class="wshdBot">
+			<!--信箱回复+律师问答-->
+            <div class="xxhf">
+                <div style="width:250px;float:left;height:60px">
+					<a href="http://www.snhr.gov.cn/article/20160805000000010669/index/%E9%A6%96%E9%A1%B5/%E4%B8%BB%E4%BB%BB%E4%BF%A1%E7%AE%B1" target="_blank"><img src="./rcjlzxfw/ldxx-pic.jpg" width="248px" height="60px"></a>  
+				</div>
+				<div style="width:250px;float:left;height:120px">
+                    <span class="wdLeft"></span>
+                    <div class="wdCenter">
+                        <span style="float:left">信箱回复</span>
+                        <span class="more"><a href="http://www.snhr.gov.cn/article/more/001-002-017/index/%E9%A6%96%E9%A1%B5/%E4%BF%A1%E7%AE%B1%E5%9B%9E%E5%A4%8D" target="_blank">更多&gt;&gt;</a></span>
+                    </div>
+                    <span class="wdRight"></span>
+                    <div class="wdBot" style="height:210px">
+                        <ul>
+				            					          	<li style="width:245px;overflow:hidden;text-overflow:ellipsis;"><nobr>· <a href="http://www.snhr.gov.cn/article/20170615000000014316/index/%E9%A6%96%E9%A1%B5/%E4%BF%A1%E7%AE%B1%E5%9B%9E%E5%A4%8D" target="_blank">
+										2017年4月24日关于档案管理及社保问题咨询回复
+								</a></nobr></li>
+					        					          	<li style="width:245px;overflow:hidden;text-overflow:ellipsis;"><nobr>· <a href="http://www.snhr.gov.cn/article/20170313000000013041/index/%E9%A6%96%E9%A1%B5/%E4%BF%A1%E7%AE%B1%E5%9B%9E%E5%A4%8D" target="_blank">
+										2017年2月27日关于养老窗口排号问题回复
+								</a></nobr></li>
+					        					          	<li style="width:245px;overflow:hidden;text-overflow:ellipsis;"><nobr>· <a href="http://www.snhr.gov.cn/article/20170313000000013040/index/%E9%A6%96%E9%A1%B5/%E4%BF%A1%E7%AE%B1%E5%9B%9E%E5%A4%8D" target="_blank">
+										2017年2月20日关于社保卡问题回复
+								</a></nobr></li>
+					        					          	<li style="width:245px;overflow:hidden;text-overflow:ellipsis;"><nobr>· <a href="http://www.snhr.gov.cn/article/20170313000000013039/index/%E9%A6%96%E9%A1%B5/%E4%BF%A1%E7%AE%B1%E5%9B%9E%E5%A4%8D" target="_blank">
+										2017年1月11日关于职称继续教育问题回复
+								</a></nobr></li>
+					        					          	<li style="width:245px;overflow:hidden;text-overflow:ellipsis;"><nobr>· <a href="http://www.snhr.gov.cn/article/20161227000000012636/index/%E9%A6%96%E9%A1%B5/%E4%BF%A1%E7%AE%B1%E5%9B%9E%E5%A4%8D" target="_blank">
+										2016年12月22日关于毕业生档案存放问题回复
+								</a></nobr></li>
+					        					          	<li style="width:245px;overflow:hidden;text-overflow:ellipsis;"><nobr>· <a href="http://www.snhr.gov.cn/article/20161227000000012635/index/%E9%A6%96%E9%A1%B5/%E4%BF%A1%E7%AE%B1%E5%9B%9E%E5%A4%8D" target="_blank">
+										2016年12月21日关于领取独生子女费事宜问题回复
+								</a></nobr></li>
+					        					          	<li style="width:245px;overflow:hidden;text-overflow:ellipsis;"><nobr>· <a href="http://www.snhr.gov.cn/article/20161202000000012495/index/%E9%A6%96%E9%A1%B5/%E4%BF%A1%E7%AE%B1%E5%9B%9E%E5%A4%8D" target="_blank">
+										2016年10月20日关于失业金领取完毕之后的医保问题回复
+								</a></nobr></li>
+					        			              </ul>
+                    </div>
+					
+                </div>
+				
+				
+			</div>
+            <!--信箱回复结束-->
+            <!--业务咨询与建议开始-->
+			<div class="zxjy" style="width:359px;padding-left:12px">
+                <span class="zxjyLeft"></span>
+                <div class="zxjyCenter" style="width:339px">
+                    <span style="float:left">业务咨询与建议</span>
+                    <span class="more"><a href="http://www.snhr.gov.cn/onlineQA/more" target="_blank">更多&gt;&gt;</a></span>
+                </div>
+                <span class="zxjyRight"></span>
+                <div class="zxjyBot" style="height: 205px;width:357px">
+                    <ul> 
+                        						          	<li style="width:345px;overflow:hidden;text-overflow:ellipsis;"><nobr>· <a target="_blank" href="http://www.snhr.gov.cn/onlineQA/getInfo/20170908000000128287">
+											人事部门盖章办理
+								</a></nobr></li>
+					         					          	<li style="width:345px;overflow:hidden;text-overflow:ellipsis;"><nobr>· <a target="_blank" href="http://www.snhr.gov.cn/onlineQA/getInfo/20170908000000128286">
+											档案转移
+								</a></nobr></li>
+					         					          	<li style="width:345px;overflow:hidden;text-overflow:ellipsis;"><nobr>· <a target="_blank" href="http://www.snhr.gov.cn/onlineQA/getInfo/20170908000000128285">
+											助理畜牧师申请评定流程
+								</a></nobr></li>
+					         					          	<li style="width:345px;overflow:hidden;text-overflow:ellipsis;"><nobr>· <a target="_blank" href="http://www.snhr.gov.cn/onlineQA/getInfo/20170907000000128282">
+											陕西省住房公积金转移
+								</a></nobr></li>
+					         					          	<li style="width:345px;overflow:hidden;text-overflow:ellipsis;"><nobr>· <a target="_blank" href="http://www.snhr.gov.cn/onlineQA/getInfo/20170907000000128280">
+											职称资格确认
+								</a></nobr></li>
+					         					          	<li style="width:345px;overflow:hidden;text-overflow:ellipsis;"><nobr>· <a target="_blank" href="http://www.snhr.gov.cn/onlineQA/getInfo/20170907000000128276">
+											户籍卡借出
+								</a></nobr></li>
+					         					          	<li style="width:345px;overflow:hidden;text-overflow:ellipsis;"><nobr>· <a target="_blank" href="http://www.snhr.gov.cn/onlineQA/getInfo/20170907000000128274">
+											落户
+								</a></nobr></li>
+					         					          	<li style="width:345px;overflow:hidden;text-overflow:ellipsis;"><nobr>· <a target="_blank" href="http://www.snhr.gov.cn/onlineQA/getInfo/20170907000000128272">
+											继续教育
+								</a></nobr></li>
+					                             </ul>
+                </div>
+                <div class="wsts" style="width:720px"> 
+					<!--
+					<a href="/zxwd" target="_blank"><img src="http://images.xajob.com/ggfw//image/index/wsts.png" width="360" height="77" /></a> 
+					-->
+                	<a href="../resources/SXJY_RLZYSC_005_001/toreport" "><img src="./rcjlzxfw/wsts.jpg" width="358" height="50"></a> 
+                	<a href="http://www.snhr.gov.cn/article/20160805000000010670/index/%E9%A6%96%E9%A1%B5/%E5%BE%AE%E4%BF%A1%E6%9C%8D%E5%8A%A1" target="_blank"><img src="./rcjlzxfw/wxfw1.jpg" width="174" height="50"></a> 
+					<a href="http://www.snhr.gov.cn/article/20160805000000010671/index/%E9%A6%96%E9%A1%B5/%E5%B8%82%E5%9C%BA%E5%BE%AE%E5%8D%9A" target="_blank"><img src="./rcjlzxfw/scwb1.jpg" width="173" height="50"></a> 
+                </div>
+            </div>
+            <!--业务咨询与建议结束-->
+            <!--问答开始-->
+            <div class="wd" style="height:230px;">
+            	<div class="zs" style="width:350px;">
+                    <span class="wdLeft"></span>
+                    <div class="wdCenter" style="width:330px">
+                        <span style="float:left">业务知识问答</span>
+                        <span class="more"><a href="http://www.snhr.gov.cn/article/more/moreItem/1/index/%E9%A6%96%E9%A1%B5/%E4%B8%9A%E5%8A%A1%E7%9F%A5%E8%AF%86%E9%97%AE%E7%AD%94" target="_blank">更多&gt;&gt;</a></span>
+                    </div>
+                    <span class="wdRight"></span>
+                    <div class="wdBot" style="height:205px;width:348px">
+                        <ul>
+		                 				          	<li style="width:340px;overflow:hidden;text-overflow:ellipsis;height:25px;"><nobr>· <a target="_blank" href="http://www.snhr.gov.cn/article/20170726000000015052/index/%E9%A6%96%E9%A1%B5/%E5%B0%B1%E4%B8%9A%E9%97%AE%E7%AD%94">
+									居民医保业务问答
+							</a></nobr></li>
+				         				          	<li style="width:340px;overflow:hidden;text-overflow:ellipsis;height:25px;"><nobr>· <a target="_blank" href="http://www.snhr.gov.cn/article/20170726000000015051/index/%E9%A6%96%E9%A1%B5/%E5%B0%B1%E4%B8%9A%E9%97%AE%E7%AD%94">
+									住房公积金业务问答
+							</a></nobr></li>
+				         				          	<li style="width:340px;overflow:hidden;text-overflow:ellipsis;height:25px;"><nobr>· <a target="_blank" href="http://www.snhr.gov.cn/article/20170406000000013527/index/%E9%A6%96%E9%A1%B5/%E5%B0%B1%E4%B8%9A%E9%97%AE%E7%AD%94">
+									省人才中心职称证书领取的通知方式
+							</a></nobr></li>
+				         				          	<li style="width:340px;overflow:hidden;text-overflow:ellipsis;height:25px;"><nobr>· <a target="_blank" href="http://www.snhr.gov.cn/article/20170406000000013526/index/%E9%A6%96%E9%A1%B5/%E5%B0%B1%E4%B8%9A%E9%97%AE%E7%AD%94">
+									卫生资格考试报名时间和现场确认时间
+							</a></nobr></li>
+				         				          	<li style="width:340px;overflow:hidden;text-overflow:ellipsis;height:25px;"><nobr>· <a target="_blank" href="http://www.snhr.gov.cn/article/20170406000000013525/index/%E9%A6%96%E9%A1%B5/%E5%B0%B1%E4%B8%9A%E9%97%AE%E7%AD%94">
+									省人才中心卫生考试报名现场确认的服务对象
+							</a></nobr></li>
+				         				          	<li style="width:340px;overflow:hidden;text-overflow:ellipsis;height:25px;"><nobr>· <a target="_blank" href="http://www.snhr.gov.cn/article/20170406000000013524/index/%E9%A6%96%E9%A1%B5/%E5%B0%B1%E4%B8%9A%E9%97%AE%E7%AD%94">
+									省人才中心能办哪些职称？
+							</a></nobr></li>
+				         				          	<li style="width:340px;overflow:hidden;text-overflow:ellipsis;height:25px;"><nobr>· <a target="_blank" href="http://www.snhr.gov.cn/article/20170321000000013180/index/%E9%A6%96%E9%A1%B5/%E5%B0%B1%E4%B8%9A%E9%97%AE%E7%AD%94">
+									省人才中心职称评审的服务对象
+							</a></nobr></li>
+				         				          	<li style="width:340px;overflow:hidden;text-overflow:ellipsis;height:25px;"><nobr>· <a target="_blank" href="http://www.snhr.gov.cn/article/20170321000000013179/index/%E9%A6%96%E9%A1%B5/%E5%B0%B1%E4%B8%9A%E9%97%AE%E7%AD%94">
+									职称评审文件每年什么时候公布？
+							</a></nobr></li>
+				         		              </ul>
+                    </div>
+                </div>
+            </div>
+            <!--问答结束-->
+        </div>
+        <!--内容结束-->
+    </div>
+    <div id="con5">
+    	<div class="bmTit"></div>
+        <div class="tool">
+            <ul>
+                <li>
+               	  <p class="one">
+                    	<a href="http://www.weather.com.cn/weather/101110101.shtml" target="_blank"><img src="./rcjlzxfw/bm01.png" width="97" height="97"></a>
+                  </p>	
+                  <p class="two"><a href="http://www.weather.com.cn/weather/101110101.shtml" target="_blank">天气预报</a></p>	
+                </li>
+                <li>
+               	  <p class="one">
+                    	<a href="http://flight.qunar.com/" target="_blank"><img src="./rcjlzxfw/bm02.png" width="97" height="97"></a>
+                  </p>	
+                  <p class="two"><a href="http://www.snhr.gov.cn/#" target="_blank">航班查询</a></p>	
+                </li>
+                <li>
+               	  <p class="one">
+                    	<a href="http://www.12306.cn/mormhweb/" target="_blank"><img src="./rcjlzxfw/bm03.png" width="97" height="97"></a>
+                  </p>	
+                  <p class="two"><a href="http://www.12306.cn/mormhweb/" target="_blank">列车时刻</a></p>	
+                </li>
+                <li>
+               	  <p class="one">
+                    	<a href="http://www1.xbus.cn/" target="_blank"><img src="./rcjlzxfw/bm04.png" width="97" height="97"></a>
+                  </p>	
+                  <p class="two"><a href="http://www1.xbus.cn/" target="_blank">公交路线</a></p>	
+                </li>
+                <li>
+               	  <p class="one">
+                    	<a href="http://www.hao123.com/jtwzcx" target="_blank"><img src="./rcjlzxfw/bm05.png" width="97" height="97"></a>
+                  </p>	
+                  <p class="two"><a href="http://www.hao123.com/jtwzcx" target="_blank">交通违章</a></p>	
+                </li>
+                <li>
+               	  <p class="one">
+                    	<a href="http://map.baidu.com/" target="_blank"><img src="./rcjlzxfw/bm06.png" width="97" height="97"></a>
+                  </p>	
+                  <p class="two"><a href="http://map.baidu.com/" target="_blank">电子地图</a></p>	
+                </li>
+                <li>
+               	  <p class="one">
+                    	<a href="http://life.baifubao.com/sj" target="_blank"><img src="./rcjlzxfw/bm07.png" width="97" height="97"></a>
+                  </p>	
+                  <p class="two"><a href="http://life.baifubao.com/sj" target="_blank">手机充值</a></p>	
+                </li>
+				
+            </ul>
+        </div>
+    </div>
+   
+<script type="text/javascript" language="javascript">
+    //加入收藏
+    function AddFavorite(sURL, sTitle) {
+        sURL = encodeURI(sURL); 
+        try{   
+            window.external.addFavorite(sURL, sTitle);   
+        }catch(e) {   
+            try{   
+                window.sidebar.addPanel(sTitle, sURL, "");   
+            }catch (e) {   
+                alert("加入收藏失败，请使用Ctrl+D进行添加,或手动在浏览器里进行设置.");
+            }   
+        }
+    }
+ 
+    //设为首页
+    function SetHome(url){
+        if (document.all) {
+            document.body.style.behavior='url(#default#homepage)';
+			document.body.setHomePage(url);
+        }else{
+            alert("您好,您的浏览器不支持自动设置页面为首页功能,请您手动在浏览器里设置该页面为首页!");
+        }
+    }
+    
+	jQuery.get(
+		"/advertis/getAdvsByCatAndDept",
+		{department:'zhgl',category:'zttggs',items:'1'},
+		function(data){
+      if(data != "" && date != null){
+  			for(var u=0;u<data.length;u++){
+  				jQuery("#advertise0").attr("src","http://images.xajob.com/ggfw/"+data[u].img)
+  				.attr("alt",data[u].href.indexOf('http://') != -1 ? data[u].href : 'http://'+data[u].href)
+  				.attr("title",data[u].companyName)
+  				.attr("height","96px");
+  			}
+      }else{
+        $("#hfs").hide();
+		var h = $("#con2").height();
+		$("#con2").height(h-96);
+      }
+		},
+		"json"
+	);
+  
+  
+    jQuery.get(
+    "/advertis/getAdvsByCatAndDept",
+    {department:'zhgl',category:'zttggx',items:'1'},
+    function(data){
+      if(data != "" && date != null){
+        for(var u=0;u<data.length;u++){
+          jQuery("#advertise1").attr("src","http://images.xajob.com/ggfw/"+data[u].img)
+          .attr("alt",data[u].href.indexOf('http://') != -1 ? data[u].href : 'http://'+data[u].href)
+          .attr("title",data[u].companyName)
+          .attr("height","96px");
+        }
+      }else{
+        $("#hfx").hide();
+        var h = $("#con2").height();
+    $("#con2").height(h-96);
+      }
+    },
+    "json"
+  );
+  
+	
+	jQuery("div").undelegate("img[id^='advertise']","click").delegate("img[id^='advertise']","click",function(){
+		jQuery(this).unbind("click");
+		window.open(jQuery(this).attr("alt"),"_blank");
+		jQuery(this).unbind("click");
+		return false;
+	});
+	
+</script>
+
+<script type="text/javascript">
+             $(document).ready(function(){
+                var mount = 1;
+                $("#demo1").hover(function(){
+                    mount = 0;
+                },function(){
+                    mount = 1;
+                });
+               
+                 var children_ul = $("#demo1").children("ul");
+                 var children_li = children_ul.children("li");
+                 var h =children_li.size()*children_li.height(); 
+                 children_li.clone().prependTo(children_ul); 
+                 var scrol_top;
+                 var si = setInterval(function(){ 
+                       scrol_top =   $("#demo1").scrollTop();
+                       if (scrol_top < h) {
+                          $("#demo1").scrollTop(scrol_top+mount);
+                       }else{
+                          $("#demo1").scrollTop(0);
+                       }
+               },100); 
+                
+             });
+  </script>
+  
+ <script type="text/javascript">
+	swfobject.registerObject("FlashID");
+ </script>
+	
+	<script type="text/javascript">
+        var date = new Date;//今天日期
+		date = +new Date(date.getFullYear(),date.getMonth(),date.getDate());
+		var wt = 24 * 60 * 60 * 1000 * 7;
+        $(".article_title_time").each(function(){
+            var link = $(this).html().split('-');
+            var year = link[0];
+            var month = parseInt(link[1])-1;
+            var day = link[2];
+            var test= +new Date(year,month,day);
+            if(date - test == 0){
+				$(this).parent().attr("style","font-weight:bold");
+		  	}
+			if(date - test <= wt){
+				$(this).parent("a").parent("nobr").parent("div").siblings(".img_").show();
+			}
+		});
+		var xwdt = 24 * 60 * 60 * 1000 * 3;
+		$(".article_title_time_xwdt").each(function(){
+			var link_ = $(this).html().split('-');
+			var year = link_[0];
+            var month = parseInt(link_[1])-1;
+            var day = link_[2];
+            var test_= +new Date(year,month,day);
+			if(date - test_ <= xwdt){
+				$(this).siblings(".xwdt_img_").show();
+			}
+		});
+	</script>
+  
+
+       	 <div id="con6">
+        <div class="wsfw">
+            <span class="wsLeft"></span>
+            <div class="wsCenter"><img src="./rcjlzxfw/yqlj.png" width="126" height="33"> </div>
+            <span class="wsRight"></span>
+        </div>
+        <div class="lj">
+            <ul>
+	    							    		<li style="height: 25px;">
+					<a href="http://www.mohrss.gov.cn/" target="_blank" title="人力资源和社会保障部" class="img-a">
+						<img src="./rcjlzxfw/20140117000000000010.jpg" width="194" height="49;">
+					</a>
+	    		</li>
+					    		<li style="height: 25px;">
+					<a href="http://www.shaanxi.gov.cn/" target="_blank" title="陕西省人民政府" class="img-a">
+						<img src="./rcjlzxfw/20140210000000000015.jpg" width="194" height="49;">
+					</a>
+	    		</li>
+					    		<li style="height: 25px;">
+					<a href="http://www.shaanxihrss.gov.cn/" target="_blank" title="陕西省人力资源和社会保障厅" class="img-a">
+						<img src="./rcjlzxfw/20140210000000000013.jpg" width="194" height="49;">
+					</a>
+	    		</li>
+					    		<li style="height: 25px;">
+					<a href="http://www.snjob.gov.cn/" target="_blank" title="公共招聘网" class="img-a">
+						<img src="./rcjlzxfw/20140210000000000014.jpg" width="194" height="49;">
+					</a>
+	    		</li>
+					    		<li style="height: 25px;">
+					<a href="http://www.xajob.com/" target="_blank" title="中国西安人才网" class="img-a">
+						<img src="./rcjlzxfw/20140123000000000012.jpg" width="194" height="49;">
+					</a>
+	    		</li>
+								    		</ul>
+        </div>
+    </div>
+    <div id="down">
+    	<div class="liebiao">
+        	<ul id="bottomUL"><li><select name="bottom0" id="bottom0"><option value="">--------媒体与网站--------</option><option value="http://www.xaonline.com/">古城热线</option><option value="http://www.sanqindaily.com/">三秦都市报</option><option value="http://www.xiancn.com/">西安晚报</option><option value="http://www.hsw.cn/">华商网</option><option value="http://www.sn.xinhuanet.com/">新华网陕西频道</option><option value="http://www.snrtv.com/">陕西电视台</option><option value="http://www.sxdaily.com.cn/">陕西日报</option><option value="http://www.xinhuanet.com//">新华网</option><option value="http://www.people.com.cn/">人民日报</option><option value="http://www.cntv.cn/">中央电视台</option><option value="http://www.snjob.gov.cn/">陕西招聘信息公共服务网</option></select></li><li><select name="bottom1" id="bottom1"><option value="">--------友情链接--------</option><option value="http://www.shaanxihrss.gov.cn/">陕西省人力资源和社会保障厅</option><option value="http://www.mohrss.gov.cn/">人力资源和社会保障部</option></select></li><li><select name="bottom2" id="bottom2"><option value="">--------特别链接--------</option><option value="http://www.smte.gov.cn/">陕西省中小企业促进局</option><option value="http://www.sxzx.gov.cn/">省政协</option><option value="http://www.sei.gov.cn/">中国经济信息网</option><option value="http://www.shaanxi.cn/">中国陕西</option><option value="http://www.smeshx.gov.cn/">中国中小企业陕西网</option><option value="http://www.ce.cn/">中国经济网</option><option value="http://www.chinacenn.com/">中国企业新闻网</option><option value="http://www.fdi.gov.cn/main/index.htm">中国投资指南</option><option value="http://www.zgylbx.com/">中国医疗保险</option><option value="http://news.cnwest.com/node_44006.htm">陕西政务在线</option><option value="http://www.sxrd.gov.cn/">省人大常委会</option><option value="http://www.snwh.gov.cn/">陕西省文化厅</option><option value="http://www.xahrss.gov.cn/">陕西省教育厅</option><option value="http://sn12333.gov.cn">陕西省社会保障卡服务网</option><option value="http://www.mohrss.gov.cn/">人力资源和社会保障部</option></select></li><li><select name="bottom3" id="bottom3"><option value="">--------全国各省区--------</option><option value="http://www.shaanxihrss.gov.cn/">杨凌示范区人事劳动局</option><option value="http://rsj.shangluo.gov.cn/">商洛市人力资源和社会保障局</option><option value="http://akrs.ankang.gov.cn/akrs/">安康市人力资源和社会保障局</option><option value="http://rsj.hanzhong.gov.cn/">汉中市人力资源和社会保障局</option><option value="http://www.ylhrss.gov.cn/indexAction.action">榆林市人力资源和社会保障局</option><option value="http://www.yarsj.gov.cn/">延安市人力资源和社会保障局</option><option value="http://www.snwn.lss.gov.cn/bzj/">渭南市人力资源和社会保障局</option><option value="http://www.tongchuanhrss.gov.cn/structure/">铜川市人力资源和社会保障局</option><option value="http://www.xyrs.cn/">咸阳市人力资源和社会保障局</option><option value="http://www.bjrs.gov.cn/">宝鸡市人力资源和社会保障局</option><option value="http://www.xahrss.gov.cn/">西安市人力资源和社会保障局</option><option value="http://www.bjld.gov.cn/">北京人力资源和社会保障局</option></select></li></ul>
+        </div>
+        <div class="banquan">
+        	<p>
+            	<a href="http://www.snhr.gov.cn/jgjs/001-002-012-014" target="_blank">机构介绍</a> | 
+                <a href="http://www.snhr.gov.cn/web_map" target="_blank">网站地图</a> | 
+                <a href="http://www.snhr.gov.cn/help" target="_blank">在线帮助</a> | 
+                <a href="http://www.snhr.gov.cn/legal" target="_blank">法律声明</a>
+            </p>
+            <p>咨询热线：029-85225858</p>
+            <p>版权所有 1996-2016 中国西安人才市场 陕西省人才交流服务中心 陕ICP备05001573号 </p>
+            <p>地址：西安市雁塔区翠华路1819号 邮编：710061</p>
+            <div class="jiucuo " style="text-align:center">
+    <script id="_jiucuo_" sitecode="6100000079" src="./rcjlzxfw/jiucuo.js"></script><span id="_span_jiucuo"><img onclick="Link(&#39;6100000079&#39;)" style="margin:0;border:0;cursor: pointer;" src="./rcjlzxfw/jiucuo.png"></span>
+  </div>
+        </div>
+        
+    </div>
+    
+  <script>
+	jQuery(function(){
+    	jQuery.get(
+    		"/links/getLinksPub",
+    		function(data){
+				jQuery("#bottomUL").empty();
+    			for(var i=0;i<data.length;i++){
+        			var id_name = 'bottom'+i;
+            		jQuery("<li><select name='"+id_name + "'" +  "id='"+id_name+"'></select></li>").appendTo("#bottomUL");
+            		var currArr = data[i];
+            		jQuery("<option value=''>"+"--------"+decodeURI(currArr[0].name)+"--------</option>").appendTo("#bottom"+i);
+					for(var j=0;j<currArr.length;j++){
+        				jQuery("<option value='"+currArr[j].href+"'>"+decodeURI(currArr[j].title)+"</option>").appendTo("#bottom"+i);
+        			}
+    			}
+        	},"json");
+    		$("ul").delegate("li select[id^='bottom']", "change", function(){   window.open($(this).val(),'_blank');
+	});
+});
+</script>
+<script src="./rcjlzxfw/statistics.js" type="text/javascript"></script><script src="./rcjlzxfw/h.js" type="text/javascript"></script>	
+</body></html>
