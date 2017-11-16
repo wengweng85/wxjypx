@@ -15,7 +15,7 @@
 		<div class="col-sm-4">
 			<div class="ibox float-e-margins">
 				<div class="ibox-title">
-					<h5>机构用户树 <span style="color:blue">蓝色代表机构数</span> <span style="color:red">红色代表机构数</span> </h5>
+					<h5>机构用户树 <span style="color:blue">蓝色代表机构数</span> <span style="color:red">红色代表用户数</span> </h5>
 					<div class="ibox-tools">
 						 <a  class="btn btn-primary btn-xs" onclick="addSysAgency()" ><i class="fa fa-plus"></i>&nbsp;新增机构</a>
 						 <a  class="btn btn-danger btn-xs" onclick="sysgroup_delete()" ><i class="fa  fa-trash-o"></i>&nbsp;删除</a>

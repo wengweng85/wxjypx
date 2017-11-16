@@ -97,6 +97,18 @@ public class MvcHelper<T> {
     	hashmap.put("rows", pageinfo.getList());
     	return hashmap;
     }
+    
+    /**
+     * ³É¹¦·µ»Ø
+     * @param PageInfo pageinfo
+     * @return
+     */
+    public HashMap<String,Object> success_hashmap_response(PageInfo<T> pageinfo,Object o ) {
+    	HashMap<String,Object> hashmap=new HashMap<String,Object>();
+    	hashmap.put("pageinfo", pageinfo);
+    	hashmap.put("obj", o);
+    	return hashmap;
+    }
 
     
     /**

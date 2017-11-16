@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <title>陕西省人力资源市场管理系统</title>
+    <title>XXXXX管理信息系统</title>
 
     <meta name="keywords" content="xxx">
     <meta name="description" content="xxxx">
@@ -38,7 +38,7 @@
                         </div>
                         <div class="appelement">
                         <span style="color: #f9f9f9;font-weight: bold;">
-							   陕西省人力资源市场系统
+							   XXXXX管理信息系统
                         </span>
                         </div>
                     </li>

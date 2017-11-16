@@ -1492,11 +1492,11 @@ function jiangese_set(tabid,start,color1,color2){
 	        queryParamsType:'limit',//查询参数组织方式
 	        sidePagination:'server',//指定服务器端分页
 	        pageList:[5,10,20,30,50],//分页步进值
-	        //showToggle:false,//是否显示切换按钮
-	        showExport:false,//是否显示导出按钮
-	        showRefresh:false,//刷新按钮
-	        showColumns:false,//显示列选择框
-	        detailView:false,//是否显示子表
+	        showToggle:true,//是否显示切换按钮
+	        showExport:true,//是否显示导出按钮
+	        showRefresh:true,//刷新按钮
+	        showColumns:true,//显示列选择框
+	        detailView:true,//是否显示子表
 	        //singleSelect:true,
 	        clickToSelect: false,//是否启用点击选中行
 	        buttonsAlign:'right'//按钮对齐方式
