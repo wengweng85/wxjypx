@@ -235,7 +235,7 @@
     
     //show
     function show(message){
-    	layer.confirm(message);
+    	layer.msg(message);
     }
     
     //删除数据
@@ -247,8 +247,8 @@
    				layer.closeAll('dialog');
    				if(response.success){
    					//console.log('layer'+layer.msg+" "+response.message);
-   					//$('#ac01table').refreshtable();
    					show(response.message);
+                    $('#ac01table').refreshtable();
    				}else{
    					console.log('layer'+layer);
    					//layer.msg(response.message);

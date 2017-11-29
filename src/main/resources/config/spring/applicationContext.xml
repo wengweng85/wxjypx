@@ -2,6 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"  
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
     xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:task="http://www.springframework.org/schema/task" 
     xmlns:context="http://www.springframework.org/schema/context"  
     xmlns:mvc="http://www.springframework.org/schema/mvc"
     xmlns:cache="http://www.springframework.org/schema/cache"
@@ -21,12 +22,28 @@
         http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
         http://code.alibabatech.com/schema/dubbo 
 	    http://code.alibabatech.com/schema/dubbo/dubbo.xsd
-        "> 
+	    http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd" 
+        > 
 
     <!-- 自动扫描的包名 -->
     <context:component-scan base-package="com.insigma">
          <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
     </context:component-scan>
+    
+    <!-- 多线程配置 -->
+    <bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">  
+        <!-- 核心线程数 -->       
+        <property name="corePoolSize" value="5" />  
+        <!-- 最大线程数 -->    
+        <property name="maxPoolSize" value="10" />  
+        <!-- 队列最大长度 -->  
+        <property name="queueCapacity" value="25" />  
+        <!-- 线程池维护线程所允许的空闲时间，默认为60s -->  
+        <property name="keepAliveSeconds" value="60" />  
+    </bean>  
+    
+    <!-- 注解式 -->  
+    <task:annotation-driven/>
     
 	<!-- jdbc配置文件 -->
 	<bean id="propertyConfigurer" class="com.insigma.config.CustomizedPropertyConfigurer">

@@ -3,6 +3,7 @@ package com.insigma.mvc.dao.common.fileupload;
 import java.util.List;
 import java.util.Map;
 
+import com.insigma.mvc.model.SExcelBatch;
 import com.insigma.mvc.model.SFileRecord;
 
 
@@ -65,4 +66,45 @@ public interface FileLoadMapper {
 	 * @return
 	 */
 	public int batupdateBusIdByBusUuidArray(Map<String,Object> map);
+	
+	
+	/**
+	 * 保存excel文件上传记录表
+	 * @param sfilerecord
+	 */
+	public void saveExelBatch(SExcelBatch sExcelBatch);
+	
+	
+	/**
+	 * 更新文件记录表
+	 * @param sExcelBatch
+	 */
+	public void updateExelBatch(SExcelBatch sExcelBatch);
+	
+	/**
+	 * 通过id获取批次号
+	 * @param id
+	 * @return
+	 */
+	public SExcelBatch getExcelBatchById(String id);
+	
+	
+	public SExcelBatch getExcelBatchByNumber(String number);
+	/**
+	 * 分页查询
+	 * @param sExcelBatch
+	 * @return
+	 */
+	public List<SExcelBatch> getExcelBatchList(SExcelBatch sExcelBatch);
+	
+	/**
+	 * 通过批次号删除批次信息
+	 * @param number
+	 * @return
+	 */
+	public int deleteExcelBatchByNumber(String number);
+	
+	
+	
+	public int updateExelBatchErrorFilePath(SExcelBatch sExcelBatch);
 }

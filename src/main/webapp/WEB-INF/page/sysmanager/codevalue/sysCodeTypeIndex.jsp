@@ -343,6 +343,7 @@ function removeTreeNode() {
 	   					alert(response.message);
 	   				}
 	   			});
+	   			layer.close(index);
 	   		});
 			
 		}
@@ -542,6 +543,7 @@ function removeDetailTreeNode() {
 	   					alert(response.message);
 	   				}
 	   			});
+	   			layer.close(index);
 	   		});
 			
 		}

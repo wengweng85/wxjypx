@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.insigma.mvc.dao.train.ZYNLJS_WEB_001_001.OpenClassMapper">
+    <!-- 查询办班列表 -->
+    <select id="getInfoList" parameterType="Search" resultType="Hb68">
+    select
+        decode(nvl((select count(1)  from hc60 where chb100= a.chb100), 0),0,'0','1') stu,
+        decode(nvl((select count(1)  from hb69 where chb100= a.chb100), 0),0,'0','1') cou,
+        a.chb100 chb100,
+        a.aae001 aae001,
+        (select aca112 from CA11 where aca111 = a.aca111 and aca11a = a.aca11a) aca111,
+        (select code_name from code_value where code_type = 'ACA11A' and code_value=a.aca11a) aca11a,
+        a.chb106 chb106,
+        to_char(a.chb113, 'yyyy-MM-dd') chb113,
+        to_char(a.chb107, 'yyyy-MM-dd') chb107,
+        to_char(a.chb108, 'yyyy-MM-dd') chb108,
+        (select code_name from code_value where code_type='CHB111' and code_value=a.chb111) chb111,
+        a.chb310,
+        a.chb312,  /*区县审核状态*/
+        a.chb315   /*中心审核状态*/
+    from
+        HB68 a
+    where
+        a.chb320 = #{chb320}
+        and a.chb103 = #{chb103}
+        and a.aae100 = '1'
+        <if test="chb100!=null">
+            and a.chb100=#{chb100}
+        </if>
+    order By a.chb310,a.aae043 desc
+    </select>
+
+    <insert id="saveBaseInfo" parameterType="Hb68">
+        <selectKey resultType="java.lang.String" order="BEFORE" keyProperty="chb100">
+            SELECT SQ_ID.NEXTVAL from dual
+        </selectKey>
+        insert into HB68(
+            chb100,
+            aae001,
+            aab001,
+            chb103,
+            chb104,
+            aca111,
+            aca11a,
+            chb526,
+            chb105,
+            chb106,
+            chb135,
+            chb136,
+            chb107,
+            chb108,
+            aae004,
+            aae005,
+            acb502,
+            chb113,
+            chb112,
+            aae100,
+            aae011,
+            aae036,
+            aae043,
+            chb122,
+            chb196,
+            chb198,
+            aab005,
+            chb199,
+            chb250,
+            chb251,
+            chb320,
+            chb310,
+            CHB312,
+            CHB315,
+            chb111,
+            chb323,
+            CHE110,
+            CHB372
+        )
+        values(
+            #{chb100},
+            TO_CHAR(SYSDATE,'yyyyMM'),
+            #{aab001},
+            #{chb103},
+            #{chb104},
+            #{aca111},
+            #{aca11a},
+            #{chb526},
+            #{chb105},
+            #{chb106},
+            to_date(#{chb135}, 'yyyy-MM-dd'),
+            to_date(#{chb136}, 'yyyy-MM-dd'),
+            to_date(#{chb107}, 'yyyy-MM-dd'),
+            to_date(#{chb108},'yyyy-MM-dd'),
+            #{aae004},
+            #{aae005},
+            #{acb502},
+            SYSDATE,
+            '2',
+            '1',
+            #{aae011},
+            SYSDATE,
+            SYSDATE,
+            #{chb122},
+            #{chb196},
+            #{chb198},
+            #{aab005},
+            #{chb199},
+            #{chb250},
+            '0',
+            #{chb320},
+            '0',
+            '2',/*区县审核状态*/
+            '2',/*中心审核状态*/
+            '00',
+            #{chb323},
+            #{che110},
+            #{chb372}/*是否需要申请补贴*/
+           )
+    </insert>
+
+</mapper>

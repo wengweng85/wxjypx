@@ -149,7 +149,7 @@
     	//验证 ajax
     	rc.validAndAjaxSubmit($("form"),demo_callback);
     	$table.inittable();
-    	$('.')
+    	//$('.')
     })
     
     //保存页面配置信息

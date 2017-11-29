@@ -17,6 +17,9 @@ $(function() {
 	//验证框架使用此属性
 	$.metadata.setType("attr", "validate");
 
+	if(layer){
+		window.alert=layer.alert;
+	}
 	if (!contextPath) {
 		if($('#contextPath').length>0){
 			contextPath=$('#contextPath').val();
@@ -223,6 +226,7 @@ var rc = {
 	 * @param maskdom_selector
 	 */
 	ajax:function(url,param,callback,method,maskdom_selector,ismask,async,istokenreload){
+		var layer_ajax_index_;
 		var _ismask=(ismask==undefined)?false:ismask;
 		var _async =(async==undefined)?true:async;
 		var _istokenreload =(istokenreload==undefined)?false:istokenreload;
@@ -235,7 +239,7 @@ var rc = {
 		options.data=param;
 		options.beforeSend=function(xhr) {
 			//rc.ajax_beforeSend(_ismask,maskdom_selector);
-			var index = layer.load(1);
+			 layer_ajax_index_ = layer.load(1);
 		},
 		options.complete=function(xhr, textStatus){
 			// 通过XMLHttpRequest取得响应头，sessionstatus
@@ -248,7 +252,7 @@ var rc = {
 				}
 				win.location.href= contextPath+xhr.getResponseHeader("redirecturl");
 			}
-        	layer.closeAll();
+        	layer.close(layer_ajax_index_);
         },
 		options.success=function(response,textStatus){
 			try{
@@ -966,9 +970,9 @@ var rc = {
 	},
 	/**
 	 * codetype值变化后多级联动
-	 * @param {} codetype
-	 * @param {} currentvalue
-	 * @param {} next_selector
+	 * @param {} currentvalue 当前选中框值
+	 * @param {} next_code_type 下一级数据对应联动代码类型
+	 * @param {} next_selector 全部对应下级选择数组
 	 */
 	code_value_select_data_change:function(currentvalue,next_code_type,next_selector){
 		var url=contextPath+'/codetype/queryByCodeTypeAndParent';
@@ -1055,6 +1059,21 @@ var rc = {
 	   		  shade: 0.8,
 	   		  area: ['50%', '60%'],
 	   		  content: contextPath+"/common/fileload/toImgUpload?file_bus_id="+file_bus_id+"&file_bus_type="+file_bus_type+"&upload_callback="+upload_callback 
+ 		    });
+    	}else{
+    		layer.alert('上传文件需要的业务编号、业务类型、回调函数不能为空,请确认');
+    	}
+    },
+     //打开excel上传页面
+    open_excel_file_upload_page:function(excel_batch_excel_type,mincolumns,upload_callback){
+ 		if(excel_batch_excel_type&&mincolumns&&upload_callback){
+    		layer.open({
+	   		  type: 2,
+	   		  title: '文件上传',
+	   		  shadeClose: true,
+	   		  shade: 0.8,
+	   		  area: ['30%', '40%'],
+	   		  content: contextPath+"/common/fileload/toExcelFileUpload?excel_batch_excel_type="+excel_batch_excel_type+"&mincolumns="+mincolumns+"&upload_callback="+upload_callback //iframe的url
  		    });
     	}else{
     		layer.alert('上传文件需要的业务编号、业务类型、回调函数不能为空,请确认');
@@ -1343,7 +1362,20 @@ $(function(){
 	});
 	//注册一个比较大小的Helper,判断v1是否等于v2
 	Handlebars.registerHelper("equals",function(v1,v2,options){
-		if(v1==v2){
+		var v2_arr=[];
+		try{
+			v2_arr=v2.split('');
+		}catch(e){
+			v2_arr.push(v2);
+		}	
+		var b_equals=false;
+		for(var i=0;i<v2_arr.length;i++){
+			if(v1==v2_arr[i]){
+				b_equals=true;
+				break;
+			}
+		}
+		if(b_equals){
 			//满足添加继续执行
 			return options.fn(this);
 		}else{
@@ -1492,11 +1524,11 @@ function jiangese_set(tabid,start,color1,color2){
 	        queryParamsType:'limit',//查询参数组织方式
 	        sidePagination:'server',//指定服务器端分页
 	        pageList:[5,10,20,30,50],//分页步进值
-	        showToggle:true,//是否显示切换按钮
-	        showExport:true,//是否显示导出按钮
-	        showRefresh:true,//刷新按钮
-	        showColumns:true,//显示列选择框
-	        detailView:true,//是否显示子表
+	        //showToggle:false,//是否显示切换按钮
+	        showExport:false,//是否显示导出按钮
+	        showRefresh:false,//刷新按钮
+	        showColumns:false,//显示列选择框
+	        detailView:false,//是否显示子表
 	        //singleSelect:true,
 	        clickToSelect: false,//是否启用点击选中行
 	        buttonsAlign:'right'//按钮对齐方式

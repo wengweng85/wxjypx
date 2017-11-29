@@ -28,7 +28,7 @@
 	
 	<!-- 通过id查询-->
 	<select id="getBusFileRecordByBusId" parameterType="String" resultType="SFileRecord">
-	    select  b.bus_uuid, a.file_uuid,file_name,file_length,file_status,file_addtime,file_md5,file_type,bus_uuid,b.file_bus_id,b.file_bus_type  from s_file_record  a, s_bus_file_record b  where  a.file_uuid=b.file_uuid and  b.bus_uuid=#{bus_uuid}
+	    select  b.bus_uuid, a.file_uuid,file_name,file_length,file_status,file_path,file_addtime,file_md5,file_type,bus_uuid,b.file_bus_id,b.file_bus_type  from s_file_record  a, s_bus_file_record b  where  a.file_uuid=b.file_uuid and  b.bus_uuid=#{bus_uuid}
 	</select>
 	
 	<!-- 通过id查询-->
@@ -41,7 +41,6 @@
 		    a.file_length,
 		    a.file_status,
 		    a.file_addtime,
-		    a.file_path,
 		    a.file_type,
 		    (select aaa103 from v_aa10 t where t.aaa100='FILE_BUS_TYPE' and aaa102=b.file_bus_type) file_bus_type 
 		    from s_file_record  a, s_bus_file_record b  where  a.file_uuid=b.file_uuid and  b.file_bus_id=#{file_bus_id}
@@ -56,7 +55,6 @@
 	<delete id="deleteFileByBusUuid" parameterType="String" >
 	    delete from s_bus_file_record t where t.bus_uuid=#{bus_uuid}
 	</delete>
-	
 	
 	<!-- 批量删除 -->
     <delete id="batDeleteData"  parameterType="String" >
@@ -73,4 +71,125 @@
             #{bus_uuid}
        </foreach>
    </update>
+   
+   
+     <!-- 保存excel上传记录状态表 -->
+	<insert id="saveExelBatch"  parameterType="SExcelBatch">
+	    <selectKey resultType="java.lang.String" order="BEFORE" keyProperty="excel_batch_id"> 
+            SELECT sys_guid() from dual 
+        </selectKey>
+		insert into S_EXCEL_BATCH(
+			excel_batch_id,
+			excel_batch_number,
+			excel_batch_begin_time,
+			excel_batch_status,
+			excel_batch_file_path,
+			excel_batch_file_name,
+			excel_batch_file_length,
+			excel_batch_excel_type,
+			excel_batch_aae011
+		)
+		values (
+		    #{excel_batch_id},
+			#{excel_batch_number},
+			sysdate,
+			'0',
+			#{excel_batch_file_path},
+			#{excel_batch_file_name},
+			#{excel_batch_file_length},
+			#{excel_batch_excel_type},
+			#{excel_batch_aae011}
+		)
+	</insert>
+	
+	
+    <!-- 更新上传状态 -->
+    <update id="updateExelBatch" parameterType="SExcelBatch">
+      update S_EXCEL_BATCH   
+      <set>
+          excel_batch_end_time=sysdate,excel_batch_cost=round((sysdate-excel_batch_begin_time)*24*60*60),
+	      <if test="excel_batch_total_count != null">
+	        excel_batch_total_count = #{excel_batch_total_count,jdbcType=INTEGER},
+	      </if>
+	      <if test="excel_batch_rt_code != null">
+	        excel_batch_rt_code = #{excel_batch_rt_code,jdbcType=VARCHAR},
+	      </if>
+	      <if test="excel_batch_rt_msg != null">
+	        excel_batch_rt_msg = #{excel_batch_rt_msg,jdbcType=VARCHAR},
+	      </if>
+	      <if test="excel_batch_error_count != null">
+	        excel_batch_error_count = #{excel_batch_error_count,jdbcType=INTEGER},
+	      </if>
+	      <if test="excel_batch_status != null">
+	        excel_batch_status = #{excel_batch_status,jdbcType=VARCHAR},
+	      </if>
+	      <if test="excel_batch_data_status != null">
+	        excel_batch_data_status = #{excel_batch_data_status,jdbcType=INTEGER},
+	      </if>
+      </set>
+    where excel_batch_id = #{excel_batch_id,jdbcType=VARCHAR}
+  </update>
+  
+  
+  <!-- 更新错误文件生成路径及生成状态 -->
+  <update id="updateExelBatchErrorFilePath" parameterType="SExcelBatch">
+      update S_EXCEL_BATCH 
+      <set>
+	      <if test="excel_error_file_path != null">
+	        excel_error_file_path = #{excel_error_file_path,jdbcType=INTEGER},
+	      </if>
+	      <if test="excel_error_file_download != null">
+	        excel_error_file_download = #{excel_error_file_download,jdbcType=VARCHAR},
+	      </if>
+      </set>
+      where  excel_batch_number=#{excel_batch_number} 
+  </update>
+  
+  
+  <!-- 通过编号获取批次号 -->
+  <select id="getExcelBatchById"  parameterType="String" resultType="SExcelBatch">
+   select 
+    excel_batch_id,
+	excel_batch_number 
+	from S_EXCEL_BATCH where excel_batch_id=#{excel_batch_id}		
+  </select>
+  
+  
+  <!--通过批次号获取批次表相关信息 -->
+  <select id="getExcelBatchByNumber"  parameterType="String" resultType="SExcelBatch">
+   select 
+    excel_batch_id,
+	excel_batch_number,
+	excel_batch_file_name,
+	excel_error_file_download,
+	excel_error_file_path    
+	from S_EXCEL_BATCH where excel_batch_number=#{excel_batch_number}		
+  </select>
+  
+  
+  
+  <!-- 分页查询 -->
+  <select id="getExcelBatchList"  parameterType="SExcelBatch" resultType="SExcelBatch">
+   select 
+    excel_batch_id,
+	excel_batch_number,
+	to_char(excel_batch_begin_time,'yyyy-MM-dd HH24:mi:ss') excel_batch_begin_time_string,
+	excel_batch_total_count,
+	excel_batch_error_count,
+	excel_batch_cost,
+	excel_batch_status,
+	excel_batch_rt_code,
+	excel_batch_rt_msg,
+	excel_error_file_download,
+	excel_batch_data_status,
+	excel_batch_file_name  
+	from S_EXCEL_BATCH order by excel_batch_number desc 		
+  </select>
+  
+  
+  <!-- 通过批次号删除批次信息 -->
+  <delete id="deleteExcelBatchByNumber"  parameterType="String">
+     delete from S_EXCEL_BATCH t where t.excel_batch_number=#{excel_batch_number}
+  </delete>
+	
 </mapper>

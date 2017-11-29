@@ -21,19 +21,26 @@ import net.sf.json.JSONObject;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.task.TaskExecutor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.github.pagehelper.PageInfo;
+import com.insigma.common.excel.XLSXCovertCSVReader;
 import com.insigma.common.util.RandomNumUtil;
 import com.insigma.dto.AjaxReturnMsg;
-import com.insigma.fastdfsclient.Fastdfs;
 import com.insigma.mvc.MvcHelper;
 import com.insigma.mvc.dao.common.fileupload.FileLoadMapper;
+import com.insigma.mvc.model.SExcelBatch;
 import com.insigma.mvc.model.SFileRecord;
 import com.insigma.mvc.service.common.fileupload.FileLoadService;
+import com.insigma.mvc.service.excel.EXCEL_IMPORT_001_001.ExcelImportService;
 import com.insigma.mvc.service.sysmanager.codetype.SysCodeTypeService;
+import com.insigma.resolver.AppException;
+import com.insigma.shiro.realm.SysUserUtil;
 
 /**
  *
@@ -43,6 +50,10 @@ import com.insigma.mvc.service.sysmanager.codetype.SysCodeTypeService;
 @Service
 public class FileLoadServiceImpl  extends MvcHelper<SFileRecord> implements FileLoadService {
 
+	
+	private static Log log=LogFactory.getLog(FileLoadServiceImpl.class);
+	
+	
 	@Value("${localdir}")
 	private String localdir;
 
@@ -51,6 +62,13 @@ public class FileLoadServiceImpl  extends MvcHelper<SFileRecord> implements File
 	
 	@Resource
 	private SysCodeTypeService sysCodeTypeService;
+	
+	@Resource
+    private ExcelImportService excelImportService;
+	
+	
+	@Resource(name = "taskExecutor")  
+	private TaskExecutor taskExecutor; 
 
 	public String getLocaldir() {
 		return localdir;
@@ -71,14 +89,6 @@ public class FileLoadServiceImpl  extends MvcHelper<SFileRecord> implements File
 		PageInfo<SFileRecord> pageinfo = new PageInfo<SFileRecord>(list);
 		return this.success_hashmap_response(pageinfo);
 	}
-	
-	@Override
-	public List<SFileRecord> getBusFileRecordListByBusId(SFileRecord sFileRecord) {
-	    //PageHelper.offsetPage(sFileRecord.getOffset(), sFileRecord.getLimit());
-		List<SFileRecord> list=fileLoadMapper.getBusFileRecordListByBusId(sFileRecord);
-		return  list;
-	}
-	
 	
 	
 	
@@ -129,11 +139,10 @@ public class FileLoadServiceImpl  extends MvcHelper<SFileRecord> implements File
 			is1.close();
 
 			SFileRecord sfilerecord = fileLoadMapper.getFileUploadRecordByFileMd5(file_md5);
-			
 			/** 如果通过md5判断文件，已经在服务器上存在此文件，不重复保存 **/
 			if (sfilerecord == null) {
 				sfilerecord = new SFileRecord();
-				sfilerecord.setFile_name(originalFilename);// 文件名,只保留第一次上传时的文件名
+				sfilerecord.setFile_name(originalFilename);// 文件名
 				
 				/** 构建图片保存的目录 **/
 				/** 当前月份 **/
@@ -144,23 +153,22 @@ public class FileLoadServiceImpl  extends MvcHelper<SFileRecord> implements File
 					fileuploadDir.mkdirs();
 				}
 				/** 本地保存的最终文件完整路径 **/
-				/*String filepath = localdir + "/" + ym + "/" + originalFilename;
+				String filepath = localdir + "/" + ym + "/" + originalFilename;
 				File file = new File(filepath);
 				//如果同名的文件存在
-				if(file.exists()){*/
+				if(file.exists()){
 					int indexofdoute = originalFilename.lastIndexOf(".");
 					/**文件名及后缀*/
-					//String prefix = originalFilename.substring(0, indexofdoute);
-					/**新文件名按日期+随机生成*/
-					String prefix = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date())+ RandomNumUtil.getRandomString(6);
+					String prefix = originalFilename.substring(0, indexofdoute);
 					String endfix = originalFilename.substring(indexofdoute).toLowerCase();
 					sfilerecord.setFile_type(endfix);
-					String local_file_relative_path=  "/" + ym + "/"+prefix+endfix;
-					String local_file_path=localdir+local_file_relative_path;
-					File file=new File(local_file_path);
-				/*}*/
-			    
-				//保存文件到本地服务器上
+					/**新文件名按日期+随机生成*/
+					prefix += new SimpleDateFormat("yyyyMMddHHmmss").format(new Date())+ '_' + RandomNumUtil.getRandomString(6);
+					filepath=localdir + "/" + ym + "/"+prefix+endfix;
+					file=new File(filepath);
+				}
+				sfilerecord.setFile_path(filepath);
+				sfilerecord.setFile_status("0");//无效
 				OutputStream os = new FileOutputStream(file);
 				int bytesRead = 0;
 				buffer = new byte[8192];
@@ -171,19 +179,6 @@ public class FileLoadServiceImpl  extends MvcHelper<SFileRecord> implements File
 				os.close();
 				is2.close();
 				baos.close();
-				//调用文件接口将文件上传到图片服务器
-				String serverfilepath=local_file_path;
-				long start=new Date().getTime();
-				Fastdfs fastdfs=Fastdfs.getInstance();
-				serverfilepath=fastdfs.uploadFile(local_file_path);
-				long end=new Date().getTime();
-				System.out.println("耗费:"+(end-start)+"毫秒");
-				
-				//上传成功后将返回文件路径
-				//更新路径
-				//文件保存绝对路径
-				sfilerecord.setFile_path(serverfilepath);
-				sfilerecord.setFile_status("0");//无效
 				
 				sfilerecord.setFile_length(new Long(file.length()).toString());
 				sfilerecord.setFile_type(sfilerecord.getFile_name().substring(sfilerecord.getFile_name().lastIndexOf(".")+1));
@@ -253,4 +248,120 @@ public class FileLoadServiceImpl  extends MvcHelper<SFileRecord> implements File
 		  return this.success("更新成功");
 	}
 
+	/**
+	 * excel文件上传记录表
+	 * @param originalFilename
+	 * @param excel_batch_excel_type
+	 * @param in
+	 * @return
+	 */
+	@Override
+	public String uploadexcel(String originalFilename,final String excel_batch_excel_type, String minColumns, InputStream in) throws AppException {
+		// TODO Auto-generated method stub
+	    final SExcelBatch sexcelbatch = new SExcelBatch();
+	    File file=null;
+	    try{
+				/** 当前月份 **/
+				String ym = new SimpleDateFormat("yyyyMM").format(new Date());
+				/** 根据真实路径创建目录 **/
+				File fileuploadDir = new File(localdir + "/" + ym);
+				if (!fileuploadDir.exists()) {
+					fileuploadDir.mkdirs();
+				}
+				int indexofdoute = originalFilename.lastIndexOf(".");
+				/**文件名及后缀*/
+				String prefix = originalFilename.substring(0, indexofdoute);
+				String endfix = originalFilename.substring(indexofdoute).toLowerCase();
+				/**新文件名按日期到毫秒*/
+				prefix = new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date());
+				String filepath=localdir + "/" + ym + "/"+prefix+endfix;
+				 file=new File(filepath);
+				sexcelbatch.setExcel_batch_file_path(filepath);
+				sexcelbatch.setExcel_batch_file_name(originalFilename);
+				OutputStream os = new FileOutputStream(file);
+				int bytesRead = 0;
+				byte [] buffer = new byte[8192];
+				while ((bytesRead = in.read(buffer, 0, 8192)) != -1) {
+					os.write(buffer, 0, bytesRead);
+				}
+				os.flush();
+				os.close();
+				in.close();
+				//批次号为当前时间到毫秒
+				sexcelbatch.setExcel_batch_number(new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date()));
+				//记录excel相关信息 包括文件大小、业务类型、获取行数、上传状态等
+				sexcelbatch.setExcel_batch_file_length(file.length());
+				sexcelbatch.setExcel_batch_excel_type(excel_batch_excel_type);
+				sexcelbatch.setExcel_batch_aae011(SysUserUtil.getCurrentUser().getCnname());
+				sexcelbatch.setExcel_batch_status("0");//转换xlsx
+				//保存文件记录
+				fileLoadMapper.saveExelBatch(sexcelbatch);
+				
+				//将excel转换成cvs格式
+				final List<String[]> list = XLSXCovertCSVReader.readerExcel( filepath, "Sheet1", new Integer(minColumns).intValue());
+				if(list==null){
+					sexcelbatch.setExcel_batch_status("4");//发生异常
+					sexcelbatch.setExcel_batch_rt_msg("所用的excel格式不正确,请确定excel第一列sheet名字为Sheet1");
+					fileLoadMapper.updateExelBatch(sexcelbatch);
+					throw new AppException("所用的excel格式不正确,请确定excel第一列sheet名字为Sheet1");
+				}
+				//行总数
+				sexcelbatch.setExcel_batch_total_count(new Long(list.size()));
+				sexcelbatch.setExcel_batch_data_status(10);//数据导入状态10%
+				sexcelbatch.setExcel_batch_status("1");//导入临时表
+				//更新文件记录
+				fileLoadMapper.updateExelBatch(sexcelbatch);
+				//开启线程执行
+				taskExecutor.execute(new Runnable() {  
+				    @Override  
+				    public void run() {  
+				        // TODO Auto-generated method stub  
+				        try {  
+				        	//数据处理
+							if(excel_batch_excel_type.equals("sxpt_excel_imp")){
+								//数据保存到临时表
+								log.info("保存到临时表开始时间"+new Date().toLocaleString());
+								Date start=new Date();
+								excelImportService.executeListToTemp(list, sexcelbatch);
+								Date end=new Date();
+								Long cost=end.getTime()-start.getTime();
+								log.info("保存到临时表开始结束"+new Date().toLocaleString()+"花费"+cost/1000+"s");
+								//调用过程处理数据
+								excelImportService.executeProc(sexcelbatch);
+							}
+				        } catch (Exception e) {  
+				            // TODO Auto-generated catch block  
+				            e.printStackTrace();  
+				        }  
+				    }  
+				});  
+			}catch(Exception e){
+				e.printStackTrace();
+				sexcelbatch.setExcel_batch_status("4");//发生异常
+				if(e.getMessage().equals(minColumns)){
+					sexcelbatch.setExcel_batch_rt_msg("所用的excel格式不正确,数据列超过要求的"+minColumns+"列,请确认");
+				}else{
+					sexcelbatch.setExcel_batch_rt_msg(e.getMessage());
+				}
+				fileLoadMapper.updateExelBatch(sexcelbatch);
+				throw new AppException(e.getMessage());
+			}finally{
+		         if(file.exists()){
+		        	file.delete();
+		         }
+			}
+		   return JSONObject.fromObject(sexcelbatch).toString();
+
+	}
+
+	@Override
+	public SExcelBatch getExcelBatchByNumber(String number) {
+		return fileLoadMapper.getExcelBatchByNumber(number);
+	}
+	
+
+	@Override
+	public int updateExelBatchErrorFilePath(SExcelBatch sExcelBatch) {
+		return fileLoadMapper.updateExelBatchErrorFilePath(sExcelBatch);
+	}
 }

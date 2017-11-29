@@ -31,6 +31,11 @@
 		<property name="typeAliasesPackage" value="com.insigma.mvc.model"/> 
 	</bean>
 	
+	<!-- sqlSessionTemplate配置 -->  
+    <bean id="sqlSession"    class="org.mybatis.spring.SqlSessionTemplate">     
+        <constructor-arg index="0" ref="sqlSessionFactory" />     
+    </bean>  
+	
 	<!-- 自动扫描了所有的XxxxMapper.xml对应的mapper接口文件，这样就不用一个一个手动配置Mpper的映射了，只要Mapper接口类和Mapper映射文件对应起来就可以了。 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.insigma.mvc.dao" />

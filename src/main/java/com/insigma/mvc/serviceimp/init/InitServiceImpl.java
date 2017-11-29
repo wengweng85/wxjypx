@@ -39,11 +39,13 @@ public class InitServiceImpl extends MvcHelper implements InitService {
 		return initMapper.getInitCodeValueList(code_type);
 	}
 	
+	@Override
 	public List<CodeValue> queryCodeValueByCodeTypeAndParent(CodeValue codevalue){
 		return initMapper.queryCodeValueByCodeTypeAndParent(codevalue);
 	}
 	
 	
+	@Override
 	public HashMap getCodeValueFromCache(CodeValue codevalue){
 		Element element = EhCacheUtil.getManager().getCache("webcache").get(codevalue.getCode_type().toUpperCase());
 		List<CodeValue> list = (List<CodeValue>) element.getValue();

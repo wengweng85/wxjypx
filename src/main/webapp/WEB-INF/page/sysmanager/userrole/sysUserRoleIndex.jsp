@@ -328,6 +328,7 @@ function sysgroup_delete(){
 					alert(response.message);
 				}
 			});
+			layer.close(index);
 		});
 	  }else{
 		layer.alert('请先选择你要删除的机构');

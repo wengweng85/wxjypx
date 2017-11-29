@@ -45,6 +45,20 @@ public class SysUserUtil {
         map.put(SHIRO_CURRENT_USER_INFO, suser);
     }  
    
+    
+    /**
+	  *  setCurrentUser
+	  * @param suser
+	  */
+   public static void removeCurrentUser() {  
+       Map map = (Map) SESSION_MAP.get();
+       if (map == null) {
+           map = new HashMap();
+           SESSION_MAP.set(map);
+       }
+
+       map.put(SHIRO_CURRENT_USER_INFO, null);
+   }  
   
     /**
      * getCurrentUser
@@ -128,5 +142,7 @@ public class SysUserUtil {
        }
        return resultlist;
    }
+   
+   
 
 }

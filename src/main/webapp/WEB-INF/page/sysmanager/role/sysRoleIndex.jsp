@@ -182,6 +182,7 @@
    					alert(response.message);
    				}
    			});
+   			layer.close(index);
    		});
    	  }else{
    		layer.alert('请先选择一个你要删除的权限节点');

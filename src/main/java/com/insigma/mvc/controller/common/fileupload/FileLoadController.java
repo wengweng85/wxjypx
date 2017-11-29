@@ -27,6 +27,7 @@ import com.insigma.dto.AjaxReturnMsg;
 import com.insigma.mvc.MvcHelper;
 import com.insigma.mvc.controller.common.suggest.SuggestSearchController;
 import com.insigma.mvc.model.CodeValue;
+import com.insigma.mvc.model.SExcelBatch;
 import com.insigma.mvc.model.SFileRecord;
 import com.insigma.mvc.service.common.fileupload.FileLoadService;
 import com.insigma.mvc.service.sysmanager.codetype.SysCodeTypeService;
@@ -98,17 +99,17 @@ public class FileLoadController extends MvcHelper<SFileRecord> {
 		return modelAndView;
 	}
 	
-	   /**
-		 * 跳转至文件上传页面
-		 * @param request
-		 * @return
-		 */
-		@RequestMapping("/toFileUpload")
-		public ModelAndView toFileUpload(HttpServletRequest request,Model modell,SFileRecord sFileRecord) throws Exception {
-			ModelAndView modelAndView=new ModelAndView("common/fileupload/fileUpload");
-			modelAndView.addObject("filerecord", sFileRecord);
-			return modelAndView;
-		}
+   /**
+	 * 跳转至文件上传页面
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping("/toFileUpload")
+	public ModelAndView toFileUpload(HttpServletRequest request,Model modell,SFileRecord sFileRecord) throws Exception {
+		ModelAndView modelAndView=new ModelAndView("common/fileupload/fileUpload");
+		modelAndView.addObject("filerecord", sFileRecord);
+		return modelAndView;
+	}
 	
 	
 	/**
@@ -175,10 +176,101 @@ public class FileLoadController extends MvcHelper<SFileRecord> {
                             if(endfix.equals(".jpg")||endfix.equals(".jpeg")||endfix.equals(".gif")||endfix.equals(".png") ||endfix.equals(".pdf")||endfix.equals(".doc")||endfix.equals(".docx")||endfix.equals(".xls")||endfix.equals(".xlsx")||endfix.equals(".rar")||endfix.equals(".zip")) {
 	     						//上传并记录日志
                             	String recordjson=fileloadservice.upload(originalFilename,file_bus_id,file_bus_type,multipartFile.getInputStream() );
-                            	System.out.println(recordjson);
                                 return this.success(recordjson);
                             }else{
                             	return this.error("文件格式不正确,请确认,只允许上传格式为jpg、jpeg、gif、png、pdf、doc、docx、xls、xlsx、rar、zip格式的文件");
+                            }
+                        }else{
+                        	return this.error("文件格式错误");
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+        	e.printStackTrace();
+			// 处理文件尺寸过大异常
+			if (e instanceof SizeLimitExceededException) {
+				return this.error( "文件尺寸超过规定大小:" + MAX_SIZE / 1024 / 1024 + "M");
+			}
+			return this.error(e.getMessage());
+        }
+    	return null;
+
+    }
+
+    
+    /**
+ 	 * 跳转至文件上传页面
+ 	 * @param request
+ 	 * @return
+ 	 */
+ 	@RequestMapping("/toExcelFileUpload")
+ 	public ModelAndView toExcelFileUpload(HttpServletRequest request,Model modell,SExcelBatch sExcelBatch) throws Exception {
+ 		ModelAndView modelAndView=new ModelAndView("common/fileupload/excelfileUpload");
+ 		modelAndView.addObject("sExcelBatch", sExcelBatch);
+ 		return modelAndView;
+ 	}
+ 	
+    /**
+     * excel文件上传
+     *
+     * @param request
+     * @param response
+     * @return
+     * @throws AppException
+     */
+    @RequestMapping("/excelupload")
+    @ResponseBody
+    public AjaxReturnMsg<String>  excelupload(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		//excel上传文件类型
+    	String excel_batch_excel_type=request.getParameter("excel_batch_excel_type");
+    	//excel解析列数
+    	String mincolumns=request.getParameter("mincolumns");
+    	
+    	//excel上传文件类型
+        if(null==excel_batch_excel_type||excel_batch_excel_type.equals("")){
+        	return this.error( "上传文件类型数为空,请检查");
+        }
+        
+      //检查excel解析列数
+        if(null==mincolumns||mincolumns.equals("")){
+        	return this.error( "解析列数为空,请检查");
+        }
+        
+		long MAX_SIZE = 100* 1024 * 1024L;//100M
+		
+    	try {
+            //创建一个通用的多部分解析器
+            CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver(request.getSession().getServletContext());
+            //判断 request 是否有文件上传,即多部分请求
+            if (multipartResolver.isMultipart(request)) {
+                //转换成多部分request
+                MultipartHttpServletRequest multiRequest = (MultipartHttpServletRequest) request;
+                //取得request中的所有文件名
+                Iterator<String> iter = multiRequest.getFileNames();
+                while (iter.hasNext()) {
+                    //取得上传文件
+                    MultipartFile multipartFile = multiRequest.getFile(iter.next());
+                    if (multipartFile.getSize() > MAX_SIZE) {
+                    	return this.error( "文件尺寸超过规定大小:" + MAX_SIZE / 1024 / 1024 + "M");
+                    } else {
+                       
+                        // 得到去除路径的文件名
+                        String originalFilename = multipartFile.getOriginalFilename();
+                        int indexofdoute = originalFilename.lastIndexOf(".");
+                        
+                        /**获取文件的后缀**/
+                        String endfix = "";
+                        if (indexofdoute != -1) {
+                            // 尾
+                            endfix = originalFilename.substring(indexofdoute).toLowerCase();
+                            if(endfix.equals(".xlsx")) {
+	     						//上传并记录日志
+                            	String recordjson=fileloadservice.uploadexcel(originalFilename,excel_batch_excel_type,mincolumns,multipartFile.getInputStream() );
+                            	log.info(recordjson);
+                                return this.success(recordjson);
+                            }else{
+                            	return this.error("文件格式不正确,请确认,只允许上传格式为xlsx格式的文件");
                             }
                         }else{
                         	return this.error("文件格式错误");
@@ -240,6 +332,46 @@ public class FileLoadController extends MvcHelper<SFileRecord> {
                  if(temp!=null){
                  	//此行代码是防止中文乱码的关键！！
                      response.setHeader("Content-disposition","attachment; filename="+ new String(filerecord.getFile_name().getBytes("GBK"),"iso-8859-1"));
+                     BufferedInputStream bis = new BufferedInputStream(new ByteArrayInputStream(temp));
+                     BufferedOutputStream bos = new BufferedOutputStream(response.getOutputStream());
+                     //新建一个2048字节的缓冲区
+                     byte[] buff = new byte[2048];
+                     int bytesRead=0;
+                     while ((bytesRead = bis.read(buff, 0, buff.length)) != -1) {
+                         bos.write(buff,0,bytesRead);
+                     }
+                     bos.flush();
+                     if (bis != null)
+                         bis.close();
+                     if (bos != null)
+                         bos.close();
+                 }else{
+                 	throw new Exception("下载错误,不存在的id");
+                 }
+        	}
+        }catch(Exception e){
+            //log.error(e.getMessage());
+        }
+    }
+    
+    /**
+     * excel文件下载 
+     * @param request
+     * @param response
+     * @throws AppException
+     */
+    @RequestMapping(value = "/exceldownload/{excel_batch_number}")
+    public void exceldownload(@PathVariable(value="excel_batch_number") String excel_batch_number, HttpServletRequest request ,HttpServletResponse response) throws  AppException{
+        try{
+        	SExcelBatch sExcelBatch=fileloadservice.getExcelBatchByNumber(excel_batch_number);
+        	if(sExcelBatch!=null){
+        		 byte[] temp=fileloadservice.download(sExcelBatch.getExcel_error_file_path());
+                 if(temp!=null){
+                	 int indexofdoute = sExcelBatch.getExcel_batch_file_name().lastIndexOf(".");
+ 					/**文件名及后缀*/
+ 					String filename = sExcelBatch.getExcel_batch_file_name().substring(0, indexofdoute)+".csv";
+                 	//此行代码是防止中文乱码的关键！！
+                     response.setHeader("Content-disposition","attachment; filename="+ new String(filename.getBytes("GBK"),"iso-8859-1"));
                      BufferedInputStream bis = new BufferedInputStream(new ByteArrayInputStream(temp));
                      BufferedOutputStream bos = new BufferedOutputStream(response.getOutputStream());
                      //新建一个2048字节的缓冲区

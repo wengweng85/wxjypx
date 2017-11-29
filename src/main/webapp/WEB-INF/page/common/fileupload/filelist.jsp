@@ -134,6 +134,7 @@
    					alert(response.message);
    				}
    			});
+   			layer.close(index);
    		});
    	  }else{
    		layer.alert('请先选择你要删除的数据');
@@ -155,6 +156,7 @@
    	   		    	alert(response.message);
    	   		    	$('#filetable').refreshtable();
    	   		   }); 
+   	   		layer.close(index);
    	    	});
     	  }else{
     		layer.alert('请先选择你要删除的数据');

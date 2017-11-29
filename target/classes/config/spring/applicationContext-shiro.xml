@@ -31,7 +31,7 @@
 				/demo/**=authc
 				/job/**=authc
 				/common/**=authc
-				/excelconfig/**=authc
+				/excelimport/**=authc
 				/sxptdataimport/**=authc
 				/sys/**=authc,roles[admin]
 			</value>
